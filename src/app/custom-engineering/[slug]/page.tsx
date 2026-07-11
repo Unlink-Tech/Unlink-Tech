@@ -65,7 +65,7 @@ export default async function ServiceDetailPage({
 
       {/* overview */}
       <section className="px-4 py-16 sm:px-6 sm:py-20">
-        <Reveal className="mx-auto max-w-3xl">
+        <Reveal className="mx-auto max-w-3xl text-center">
           <span
             className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-background text-indigo-500 dark:text-indigo-400 ${insetSm}`}
           >
@@ -74,7 +74,7 @@ export default async function ServiceDetailPage({
           <h2 className="mt-6 text-sm font-semibold uppercase tracking-widest text-muted-foreground">
             Overview
           </h2>
-          <p className="mt-3 text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-3 text-balance text-base leading-relaxed text-muted-foreground sm:text-lg">
             {overview}
           </p>
         </Reveal>

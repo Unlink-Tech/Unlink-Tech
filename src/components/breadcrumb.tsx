@@ -53,7 +53,7 @@ export function Breadcrumb({ className }: { className?: string }) {
     <nav
       aria-label="Breadcrumb"
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-full bg-background px-4 py-2 text-sm shadow-[4px_4px_8px_var(--neu-dark),-4px_-4px_8px_var(--neu-light)]",
+        "inline-flex max-w-full flex-wrap items-center justify-center gap-x-1.5 gap-y-1 rounded-full bg-background px-4 py-2 text-sm shadow-[4px_4px_8px_var(--neu-dark),-4px_-4px_8px_var(--neu-light)]",
         className,
       )}
     >

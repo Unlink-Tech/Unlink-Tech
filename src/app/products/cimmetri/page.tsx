@@ -254,9 +254,9 @@ export default function CimmetriPage() {
           </Reveal>
           <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
             {differentiators.map((d) => (
-              <Reveal key={d.title}>
-                <AuroraCard>
-                  <h3 className="text-xl font-bold tracking-tight">
+              <Reveal key={d.title} className="min-w-0">
+                <AuroraCard className="p-6 sm:p-8">
+                  <h3 className="text-lg font-bold tracking-tight sm:text-xl">
                     <span className={gradientText}>{d.title}</span>
                   </h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
@@ -264,7 +264,7 @@ export default function CimmetriPage() {
                   </p>
                   {d.code && (
                     <pre
-                      className={`mt-4 overflow-x-auto rounded-xl bg-background px-4 py-3 font-mono text-xs leading-relaxed text-foreground/90 ${inset}`}
+                      className={`mt-4 whitespace-pre-wrap break-words rounded-xl bg-background px-4 py-3 font-mono text-xs leading-relaxed text-foreground/90 ${inset}`}
                     >
                       {d.code}
                     </pre>

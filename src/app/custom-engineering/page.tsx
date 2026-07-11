@@ -189,8 +189,8 @@ export default function CustomEngineeringPage() {
 
       {/* intro */}
       <section className="px-4 py-16 sm:px-6">
-        <Reveal className="mx-auto max-w-3xl">
-          <p className="text-lg leading-relaxed text-muted-foreground">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <p className="text-balance text-base leading-relaxed text-muted-foreground sm:text-lg">
             We work in five service lines — all within one domain: regulated
             fintech. They are not separate practices; they are five aspects of
             the same expertise. And they are where our products came from: every

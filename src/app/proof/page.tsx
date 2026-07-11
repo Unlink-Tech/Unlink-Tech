@@ -228,8 +228,8 @@ export default function ProofPage() {
 
       {/* intro */}
       <section className="px-4 py-16 sm:px-6 sm:py-20">
-        <Reveal className="mx-auto max-w-3xl">
-          <p className="text-lg leading-relaxed text-muted-foreground">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <p className="text-balance text-base leading-relaxed text-muted-foreground sm:text-lg">
             Our client work is confidential — which is what you would want if you
             were the client. What we share instead is the depth of the work: 5+
             years of fintech-grade systems across payments, settlement, fraud,

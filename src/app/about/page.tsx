@@ -73,8 +73,8 @@ export default function AboutPage() {
 
       {/* anchor statement */}
       <section className="px-4 py-16 sm:px-6 sm:py-20">
-        <Reveal className="mx-auto max-w-3xl">
-          <p className="text-xl leading-relaxed text-foreground/90 sm:text-2xl sm:leading-relaxed">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <p className="text-balance text-lg leading-relaxed text-foreground/90 sm:text-2xl sm:leading-relaxed">
             Unlink is a specialist fintech technology company. For 5+ years we
             have designed and delivered payment infrastructure, AI-powered risk
             systems, enterprise workflows, and regulatory compliance platforms
