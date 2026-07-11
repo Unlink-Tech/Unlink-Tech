@@ -131,6 +131,181 @@
   }
 }
 
+/* ======================================================================
+   GLASSMORPHISM SKIN
+   ----------------------------------------------------------------------
+   Opt-in skin, toggled by adding `.glass` to <html> (see SkinProvider).
+   Neumorphism is the default and needs no class.
+
+   How it re-skins the whole app without touching a single component:
+   every soft-UI surface in this codebase is painted by a Tailwind arbitrary
+   shadow utility, so its class attribute literally contains the text
+   "var(--neu-dark)". That string is the hook — `[class*="var(--neu-dark)"]`
+   matches every neumorphic element on every page, raised or pressed.
+
+   These rules are deliberately UNLAYERED: unlayered CSS outranks anything in
+   Tailwind's @layer utilities, so it wins over the arbitrary shadow (and its
+   hover/active variants) without a single !important.
+
+   Surfaces are re-skinned with box-shadow only — never `border` — so
+   switching skins never shifts layout by a pixel.
+   ====================================================================== */
+
+.glass {
+  /* Neutralise the neumorphic shadow pair everywhere at once. Belt-and-braces:
+     any soft-UI shadow we don't explicitly re-skin simply renders invisible. */
+  --neu-dark: transparent;
+  --neu-light: transparent;
+
+  --glass-fill: rgba(255, 255, 255, 0.5);
+  --glass-fill-hover: rgba(255, 255, 255, 0.68);
+  --glass-sunken: rgba(255, 255, 255, 0.22);
+  --glass-edge: rgba(255, 255, 255, 0.6);
+  --glass-sheen: rgba(255, 255, 255, 0.75);
+  --glass-cast: rgba(31, 38, 135, 0.16);
+  --glass-cast-lift: rgba(31, 38, 135, 0.26);
+  --glass-press: rgba(31, 38, 135, 0.13);
+  --glass-blur: 16px;
+
+  /* Retint the surface tokens themselves, so *any* bg-background / bg-card /
+     bg-popover surface turns to glass — including ones no rule below targets.
+     `body` is given its own opaque backdrop, so it stays unaffected. */
+  --background: rgba(255, 255, 255, 0.5);
+  --card: rgba(255, 255, 255, 0.5);
+  --popover: rgba(255, 255, 255, 0.72);
+  --border: rgba(255, 255, 255, 0.55);
+  --input: rgba(255, 255, 255, 0.55);
+}
+
+.glass.dark {
+  --neu-dark: transparent;
+  --neu-light: transparent;
+
+  --glass-fill: rgba(255, 255, 255, 0.07);
+  --glass-fill-hover: rgba(255, 255, 255, 0.12);
+  --glass-sunken: rgba(0, 0, 0, 0.18);
+  --glass-edge: rgba(255, 255, 255, 0.14);
+  --glass-sheen: rgba(255, 255, 255, 0.22);
+  --glass-cast: rgba(0, 0, 0, 0.34);
+  --glass-cast-lift: rgba(0, 0, 0, 0.46);
+  --glass-press: rgba(0, 0, 0, 0.4);
+
+  --background: rgba(255, 255, 255, 0.07);
+  --card: rgba(255, 255, 255, 0.07);
+  --popover: rgba(20, 26, 53, 0.8);
+  --border: rgba(255, 255, 255, 0.12);
+  --input: rgba(255, 255, 255, 0.12);
+}
+
+/* The lit backdrop. Glass has nothing to refract without one, so the flat
+   neumorphic surface is replaced by a fixed aurora wash. */
+.glass body {
+  background-color: #e8ecff;
+  background-image:
+    radial-gradient(at 18% 18%, rgba(99, 102, 241, 0.42), transparent 55%),
+    radial-gradient(at 82% 12%, rgba(236, 72, 153, 0.3), transparent 50%),
+    radial-gradient(at 78% 82%, rgba(56, 189, 248, 0.38), transparent 55%),
+    radial-gradient(at 12% 88%, rgba(167, 139, 250, 0.4), transparent 52%),
+    linear-gradient(135deg, #eef2ff 0%, #e0f2fe 50%, #fae8ff 100%);
+  background-attachment: fixed;
+}
+
+.glass.dark body {
+  background-color: #0b1020;
+  background-image:
+    radial-gradient(at 18% 18%, rgba(99, 102, 241, 0.4), transparent 55%),
+    radial-gradient(at 82% 12%, rgba(217, 70, 239, 0.24), transparent 50%),
+    radial-gradient(at 78% 82%, rgba(14, 165, 233, 0.3), transparent 55%),
+    radial-gradient(at 12% 88%, rgba(124, 58, 237, 0.34), transparent 52%),
+    linear-gradient(135deg, #0b1020 0%, #141a35 50%, #1c1338 100%);
+  background-attachment: fixed;
+}
+
+/* --- Raised surfaces: cards, panels, buttons, pills ------------------- */
+.glass [class*="var(--neu-dark)"] {
+  background-color: var(--glass-fill);
+  backdrop-filter: blur(var(--glass-blur)) saturate(170%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(170%);
+  box-shadow:
+    inset 0 1px 0 var(--glass-sheen),
+    inset 0 0 0 1px var(--glass-edge),
+    0 8px 32px var(--glass-cast);
+  transition:
+    background-color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.3s ease;
+}
+
+.glass [class*="var(--neu-dark)"]:hover {
+  background-color: var(--glass-fill-hover);
+  box-shadow:
+    inset 0 1px 0 var(--glass-sheen),
+    inset 0 0 0 1px var(--glass-edge),
+    0 20px 48px var(--glass-cast-lift);
+}
+
+/* --- Sunken surfaces: pressed pockets, inputs, icon wells -------------
+   Matched on a standalone `shadow-[inset…]` token only — the leading-space /
+   start-of-attribute pair keeps `active:shadow-[inset…]` (a raised button that
+   merely presses on click) from being caught here. */
+.glass
+  :is([class^="shadow-[inset"], [class*=" shadow-[inset"])[class*="var(--neu-dark)"] {
+  background-color: var(--glass-sunken);
+  backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  box-shadow:
+    inset 0 0 0 1px var(--glass-edge),
+    inset 0 2px 8px var(--glass-press);
+}
+
+.glass
+  :is([class^="shadow-[inset"], [class*=" shadow-[inset"])[class*="var(--neu-dark)"]:hover {
+  background-color: var(--glass-sunken);
+  box-shadow:
+    inset 0 0 0 1px var(--glass-edge),
+    inset 0 2px 8px var(--glass-press);
+}
+
+/* Raised things press inward on click, mirroring the neumorphic behaviour. */
+.glass [class*="var(--neu-dark)"]:active {
+  box-shadow:
+    inset 0 0 0 1px var(--glass-edge),
+    inset 0 2px 8px var(--glass-press);
+}
+
+/* --- Ghost buttons stay flat (nav items) — only the current one is a pocket */
+.glass [data-variant="ghost"]:not([data-active]) {
+  background-color: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+}
+
+.glass [data-variant="ghost"]:not([data-active]):hover {
+  background-color: var(--glass-fill);
+  box-shadow: inset 0 0 0 1px var(--glass-edge);
+}
+
+/* --- Plain surfaces that carry no soft-UI shadow (mobile menu, popovers) */
+.glass :is([class~="bg-background"], [class~="bg-popover"]):not([class*="var(--neu-dark)"]) {
+  background-color: var(--glass-fill);
+  backdrop-filter: blur(var(--glass-blur)) saturate(170%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(170%);
+}
+
+/* The neumorphic surface tint reads as muddy sludge against the aurora. */
+.glass .hero-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.22) 1px, transparent 1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glass [class*="var(--neu-dark)"] {
+    transition: none;
+  }
+}
+
 /* ---- Hero: calm aurora + grid ----------------------------------------- */
 
 /* Faint tech grid, masked so it fades out toward the outer frame */
