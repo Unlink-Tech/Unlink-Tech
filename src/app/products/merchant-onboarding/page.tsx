@@ -23,7 +23,7 @@ import { Reveal } from "@/components/reveal";
 export const metadata: Metadata = {
   title: "Merchant Onboarding",
   description:
-    "Onboard merchants in hours, not weeks — automated KYC/KYB, risk scoring, and tiered approval workflows with a full audit trail on every decision.",
+    "Onboard merchants in hours, not weeks: automated KYC/KYB, risk scoring, and tiered approval workflows with a full audit trail on every decision.",
 };
 
 const raised =
@@ -39,7 +39,7 @@ const problems: { icon: LucideIcon; title: string; text: string }[] = [
   {
     icon: ShieldAlert,
     title: "A workflow error is a compliance breach",
-    text: "In regulated finance, a mistake in onboarding is not a bug — it is a breach. So teams review everything manually, and merchants wait weeks.",
+    text: "In regulated finance, a mistake in onboarding is not a bug. It is a breach. So teams review everything manually, and merchants wait weeks.",
   },
   {
     icon: Users,
@@ -52,12 +52,12 @@ const valueProps: { icon: LucideIcon; title: string; text: string }[] = [
   {
     icon: ClipboardCheck,
     title: "Automate the paperwork",
-    text: "KYC and KYB checks run automatically with configurable verification flows and a full evidence trail — your team reviews exceptions, not every application.",
+    text: "KYC and KYB checks run automatically with configurable verification flows and a full evidence trail. Your team reviews exceptions, not every application.",
   },
   {
     icon: Layers,
     title: "Tiered decision logic",
-    text: "Auto-approve, recommend-and-review, or full manual — designed so ~95% of cases resolve without human intervention while audit integrity holds. In production this cut manual compliance decisions from 40/day to 4.",
+    text: "Auto-approve, recommend-and-review, or full manual, designed so ~95% of cases resolve without human intervention while audit integrity holds. In production, this cut manual compliance decisions from 40/day to 4.",
   },
   {
     icon: ShieldCheck,
@@ -67,7 +67,7 @@ const valueProps: { icon: LucideIcon; title: string; text: string }[] = [
   {
     icon: TrendingUp,
     title: "Scale without hiring",
-    text: "Onboarding time down 70%. Handle 10× the applications with the same team, with approved merchants transacting the same day.",
+    text: "Onboarding time down 70%. Handle 10× the applications with the same team, and approved merchants transact the same day.",
   },
 ];
 
@@ -107,7 +107,7 @@ export default function MerchantOnboardingPage() {
     <>
       <PageHero
         eyebrow="Automated KYC/KYB & risk scoring"
-        title="Onboard merchants in hours, not weeks — with an audit trail on every decision."
+        title="Onboard merchants in hours, not weeks, with an audit trail on every decision."
         subtitle="Automated KYC/KYB, risk scoring, and tiered approval workflows that turn a compliance bottleneck into a competitive advantage."
       />
 
@@ -117,7 +117,7 @@ export default function MerchantOnboardingPage() {
           <Reveal className="mb-12">
             <SectionHeading
               eyebrow="The problem"
-              title="Every manual review is a cost — and a risk."
+              title="Every manual review is a cost, and a risk."
             />
           </Reveal>
           <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
@@ -240,7 +240,7 @@ export default function MerchantOnboardingPage() {
               <span className={gradientText}>onboarding.</span>
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              Start with a 30-minute walkthrough of the decision engine — see the
+              Start with a 30-minute walkthrough of the decision engine: see the
               tiered logic and the audit trail on real cases.
             </p>
             <NeuButton asChild variant="primary" size="lg" className="group mt-9">
@@ -262,7 +262,7 @@ export default function MerchantOnboardingPage() {
             </p>
             <p className="mt-3 text-lg leading-relaxed text-muted-foreground">
               Productized from an onboarding system we shipped for a regulated
-              client —{" "}
+              client:{" "}
               <span className="font-medium text-foreground">
                 40 manual decisions a day down to 4, with full audit-trail
                 integrity

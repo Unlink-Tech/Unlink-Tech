@@ -31,27 +31,25 @@ type Post = {
  */
 const posts: Post[] = [
   {
-    title:
-      "Fintech growth isn’t built on product alone.",
+    title: "Fintech growth isn't built on product alone",
     excerpt:
-      "Fintech growth isn’t built on product alone. It’s built on operating foundations. Behind every strong fintech business is a system that can build reliably, protect trust, and operate with control.",
+      "Fintech growth isn't built on product alone. It's built on operating foundations. Behind every strong fintech business is a system that can build reliably, protect trust, and operate with control.",
     category: "Payments",
     date: "Jul 2026",
     readingTime: "7 min read",
     url: "https://www.linkedin.com/posts/unlink-technologies-private-limited_fintech-payments-paymentinfrastructure-activity-7481218159975292928-P4le?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAsC5AABgWJHsHkJMTnOu3Vige79R5tHGhE",
   },
   {
-    title:
-      "Why fintech projects take longer than expected?",
+    title: "Why fintech projects take longer than expected",
     excerpt:
-      "As fintech platforms evolve, teams must navigate multiple payment integrations, compliance requirements, infrastructure decisions, and third-party dependencies—each of which can significantly influence delivery timelines and operational readiness.",
+      "As fintech platforms evolve, teams must navigate multiple payment integrations, compliance requirements, infrastructure decisions, and third-party dependencies, each of which can significantly influence delivery timelines and operational readiness.",
     category: "Payments",
     date: "Jul 2026",
     readingTime: "7 min read",
     url: "https://www.linkedin.com/posts/unlink-technologies-private-limited_fintech-fintechinfrastructure-payments-activity-7477224038780583936-bB8S?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAsC5AABgWJHsHkJMTnOu3Vige79R5tHGhE",
   },
   {
-    title: "Fintech infrastructures rarely fails at launch.",
+    title: "Fintech infrastructure rarely fails at launch",
     excerpt:
       "Infrastructure challenges in fintech rarely appear during the early stages of growth. They emerge when increasing transaction volumes, operational dependencies, and compliance demands begin testing the scalability of underlying systems.",
     category: "Payments",
@@ -60,7 +58,7 @@ const posts: Post[] = [
     url: "https://www.linkedin.com/posts/unlink-technologies-private-limited_fintech-payments-infrastructure-activity-7459822357352943617-mh86?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAsC5AABgWJHsHkJMTnOu3Vige79R5tHGhE",
   },
   {
-    title: "The infrastructure behind every successful fintech.",
+    title: "The infrastructure behind every successful fintech",
     excerpt:
       "Every successful fintech is built on more than a great product. Behind every seamless transaction, efficient onboarding journey, and scalable customer experience lies a foundation of infrastructure designed to support growth.",
     category: "Payments",
@@ -69,18 +67,18 @@ const posts: Post[] = [
     url: "https://www.linkedin.com/posts/unlink-technologies-private-limited_fintech-fintechinfrastructure-payments-activity-7469986526643486721-bq-0?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAsC5AABgWJHsHkJMTnOu3Vige79R5tHGhE",
   },
   {
-    title: "3 reasons fintech miss their launch window",
+    title: "3 reasons fintechs miss their launch window",
     excerpt:
-      "Most fintechs don’t lose momentum because of weak products. They lose momentum because infrastructure becomes the constraint. The real challenge in fintech is not building features. It is building systems that can support speed, reliability, compliance, and scale — simultaneously",
+      "Most fintechs don't lose momentum because of weak products. They lose momentum because infrastructure becomes the constraint. The real challenge in fintech is not building features. It is building systems that can support speed, reliability, compliance, and scale simultaneously.",
     category: "Payments",
     date: "Jun 2026",
     readingTime: "9 min read",
     url: "https://www.linkedin.com/posts/unlink-technologies-private-limited_fintech-payments-fintechinfrastructure-activity-7465661647777542144-l7lZ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAsC5AABgWJHsHkJMTnOu3Vige79R5tHGhE",
   },
   {
-    title: "Disconnected fintech systems create operational frictions",
+    title: "Disconnected fintech systems create operational friction",
     excerpt:
-      "Disconnected systems rarely fail visibly in fintech. They fail operationally — through delays, fragmented workflows, manual intervention, and integration complexity.",
+      "Disconnected systems rarely fail visibly in fintech. They fail operationally: through delays, fragmented workflows, manual intervention, and integration complexity.",
     category: "Payments",
     date: "Jun 2026",
     readingTime: "6 min read",

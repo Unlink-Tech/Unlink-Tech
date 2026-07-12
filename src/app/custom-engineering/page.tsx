@@ -19,7 +19,7 @@ import { Reveal } from "@/components/reveal";
 export const metadata: Metadata = {
   title: "Custom Engineering",
   description:
-    "When no vendor sells what a bank, NBFC, PSP, or fintech needs, the same team designs and ships it end to end — in production, in your regulatory environment. Five service lines within regulated fintech.",
+    "When no vendor sells what a bank, NBFC, PSP, or fintech needs, the same team designs and ships it end to end, in production, in your regulatory environment. Five service lines within regulated fintech.",
 };
 
 /** Neumorphic inset helpers, driven by the theme's --neu-* variables. */
@@ -49,7 +49,7 @@ const services: Service[] = [
     icon: Server,
     title: "Fintech Platform Engineering",
     description:
-      "Payment gateways, settlement engines, merchant platforms — built for regulated environments and high-volume scale. We know the architecture decision that determines whether a gateway survives 10× traffic — because we have made it.",
+      "Payment gateways, settlement engines, and merchant platforms, built for regulated environments and high-volume scale. We know the architecture decision that determines whether a gateway survives 10× traffic, because we have made it.",
     proof: (
       <>
         A production gateway handling multi-currency transactions at{" "}
@@ -65,7 +65,7 @@ const services: Service[] = [
     icon: BrainCircuit,
     title: "AI & ML Product Development",
     description:
-      "Fraud detection, anomaly detection, risk scoring — with model governance and explainability from day one. Not a proof of concept — production AI that survives a regulatory audit.",
+      "Fraud detection, anomaly detection, and risk scoring, with model governance and explainability from day one. Not a proof of concept. Production AI that survives a regulatory audit.",
     proof: (
       <>
         A production fraud ML system at <Em>98.7% detection</Em>,{" "}
@@ -81,7 +81,7 @@ const services: Service[] = [
     icon: ClipboardCheck,
     title: "Enterprise Workflow & Onboarding Systems",
     description:
-      "KYC/KYB automation, approval workflows, and ERP systems for regulated industries — where a workflow error is a compliance event.",
+      "KYC/KYB automation, approval workflows, and ERP systems for regulated industries, where a workflow error is a compliance event.",
     proof: (
       <>
         Manual compliance decisions reduced <Em>40/day → 4/day</Em> through
@@ -96,7 +96,7 @@ const services: Service[] = [
     icon: ShieldCheck,
     title: "Regulatory Compliance Technology (MAS TRM & Beyond)",
     description:
-      "Gap assessment, implementation, and ongoing posture management — MAS TRM and Cyber Hygiene in Singapore, and the equivalent regimes across India (RBI), Southeast Asia, and the Middle East (SAMA, CBUAE). We know what examiners actually check, because we have implemented these controls in a live regulated environment and watched them be tested. A quarterly retainer model tied to the compliance calendar.",
+      "Gap assessment, implementation, and ongoing posture management: MAS TRM and Cyber Hygiene in Singapore, and the equivalent regimes across India (RBI), Southeast Asia, and the Middle East (SAMA, CBUAE). We know what examiners actually check, because we have implemented these controls in a live regulated environment and watched them be tested. A quarterly retainer model tied to the compliance calendar.",
     proof: (
       <>
         <Em>100% compliance posture</Em> achieved with board-level attestation
@@ -111,7 +111,7 @@ const services: Service[] = [
     icon: Smartphone,
     title: "Mobile & Field Commerce Platforms",
     description:
-      "Consumer-grade mobile payment acceptance for field conditions — offline-first architecture as the primary design, QR and NFC, iOS and Android from one codebase.",
+      "Consumer-grade mobile payment acceptance for field conditions: offline-first architecture as the primary design, QR and NFC, iOS and Android from one codebase.",
     proof: (
       <>
         A merchant mobile platform at a <Em>4.8-star rating</Em> with{" "}
@@ -184,14 +184,14 @@ export default function CustomEngineeringPage() {
       <PageHero
         eyebrow="Custom Engineering"
         title="When the product doesn't exist yet, we build it."
-        subtitle="Our products came from client work. When a bank, NBFC, PSP, or fintech needs something no vendor sells, the same team designs and ships it — end to end, in production, in your regulatory environment. 5+ years of doing exactly this."
+        subtitle="Our products came from client work. When a bank, NBFC, PSP, or fintech needs something no vendor sells, the same team designs and ships it end to end, in production, in your regulatory environment. 5+ years of doing exactly this."
       />
 
       {/* intro */}
       <section className="px-4 py-16 sm:px-6">
         <Reveal className="mx-auto max-w-3xl text-center">
           <p className="text-balance text-base leading-relaxed text-muted-foreground sm:text-lg">
-            We work in five service lines — all within one domain: regulated
+            We work in five service lines, all within one domain: regulated
             fintech. They are not separate practices; they are five aspects of
             the same expertise. And they are where our products came from: every
             capability below has already been shipped, audited, and run at
@@ -219,7 +219,7 @@ export default function CustomEngineeringPage() {
           <>
             Prefer proven infrastructure over a custom build?{" "}
             <span className="font-medium text-foreground">
-              Four of these capabilities are already productized — deploy them
+              Four of these capabilities are already productized. Deploy them
               instead of building.
             </span>
           </>

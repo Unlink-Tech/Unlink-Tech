@@ -30,9 +30,9 @@ const columns: Column[] = [
       <>
         <Em>Cimmetri</Em> (reconciliation), <Em>Enclave</Em> (governed
         enterprise AI), <Em>Payment Gateway</Em>, and{" "}
-        <Em>Merchant Onboarding</Em> — proven infrastructure you deploy instead
-        of build. First reconciled run in days. Merchants live the same day. AI
-        grounded in your own data, inside your own boundary.
+        <Em>Merchant Onboarding</Em>: proven infrastructure you deploy instead
+        of building. First reconciled run in days. Merchants live the same day.
+        AI grounded in your own data, inside your own boundary.
       </>
     ),
   },
@@ -44,7 +44,7 @@ const columns: Column[] = [
       <>
         Payment and settlement platforms, AI/ML fraud and risk systems, KYC/KYB
         workflow automation, MAS TRM and compliance technology, offline-first
-        mobile commerce — designed and shipped end to end, in your regulatory
+        mobile commerce, designed and shipped end to end, in your regulatory
         environment.
       </>
     ),
@@ -71,7 +71,7 @@ export function WhatWeDo() {
         {/* section header */}
         <SectionHeading
           eyebrow="What we do"
-          title="Two ways in — held to one standard."
+          title="Two ways in, held to one standard."
           className="mb-14"
         />
 

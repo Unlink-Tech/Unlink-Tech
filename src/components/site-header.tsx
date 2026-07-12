@@ -21,7 +21,7 @@ const products: NavChild[] = [
   {
     label: "Cimmetri",
     href: "/products/cimmetri",
-    desc: "Reconciliation, automated — a 48-hour pilot.",
+    desc: "Reconciliation, automated. A 48-hour pilot.",
   },
   {
     label: "Enclave",
@@ -36,7 +36,7 @@ const products: NavChild[] = [
   {
     label: "Merchant Onboarding",
     href: "/products/merchant-onboarding",
-    desc: "Onboard in hours, not weeks — full evidence trail.",
+    desc: "Onboard in hours, not weeks, with a full evidence trail.",
   },
 ];
 

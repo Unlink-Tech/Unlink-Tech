@@ -25,10 +25,10 @@ export const services: Service[] = [
     slug: "fintech-platform-engineering",
     name: "Fintech Platform Engineering",
     tagline:
-      "Payment gateways, settlement engines, and merchant platforms — built for regulated environments and high-volume scale.",
+      "Payment gateways, settlement engines, and merchant platforms, built for regulated environments and high-volume scale.",
     icon: Server,
     overview:
-      "When you accept and move money at scale, standing up a gateway is the easy part. Surviving the traffic spike, the PCI-DSS audit, and the reconciliation dispute is the hard part. We design payment and settlement infrastructure for regulated environments where a dropped transaction or a missed cent is not an option — and where the architecture has to hold under both real volume and a real examiner.",
+      "When you accept and move money at scale, standing up a gateway is the easy part. Surviving the traffic spike, the PCI-DSS audit, and the reconciliation dispute is the hard part. We design payment and settlement infrastructure for regulated environments where a dropped transaction or a missed cent is not an option, and where the architecture has to hold under both real volume and a real examiner.",
     whatWeBuild: [
       "Payment Gateways",
       "Settlement & Reconciliation Engines",
@@ -71,7 +71,7 @@ export const services: Service[] = [
       },
       {
         title: "Reconciliation-first design",
-        text: "Every money movement is event-sourced and matchable — reconciliation is built in, not bolted on.",
+        text: "Every money movement is event-sourced and matchable; reconciliation is built in, not bolted on.",
       },
       {
         title: "Scale that survives the spike",
@@ -79,16 +79,16 @@ export const services: Service[] = [
       },
     ],
     signature:
-      "We know the architecture decision that determines whether a gateway survives 10× traffic — because we have made it.",
+      "We know the architecture decision that determines whether a gateway survives 10× traffic, because we have made it.",
   },
   {
     slug: "ai-ml-product-development",
     name: "AI & ML Product Development",
     tagline:
-      "Fraud detection, anomaly detection, and risk scoring — with model governance and explainability from day one.",
+      "Fraud detection, anomaly detection, and risk scoring, with model governance and explainability from day one.",
     icon: BrainCircuit,
     overview:
-      "Production AI in fintech has to do two things at once: catch what matters in real time, and prove every decision to a regulator. We build fraud, risk, and anomaly systems that survive both the traffic and the audit — engineered for latency, governance, and explainability from the first commit, not retrofitted after a proof of concept.",
+      "Production AI in fintech has to do two things at once: catch what matters in real time, and prove every decision to a regulator. We build fraud, risk, and anomaly systems that survive both the traffic and the audit: engineered for latency, governance, and explainability from the first commit, not retrofitted after a proof of concept.",
     whatWeBuild: [
       "Fraud Detection Platforms",
       "Risk Scoring Engines",
@@ -122,7 +122,7 @@ export const services: Service[] = [
     approach: [
       {
         title: "Explainability by design",
-        text: "Per-decision reason codes captured at inference — not reconstructed after the fact.",
+        text: "Per-decision reason codes captured at inference, not reconstructed after the fact.",
       },
       {
         title: "Shadow before switch",
@@ -137,16 +137,16 @@ export const services: Service[] = [
         text: "Versioning, monitoring, and drift detection wired in so the system stays auditable.",
       },
     ],
-    signature: "Not a proof of concept — production AI that survives a regulatory audit.",
+    signature: "Not a proof of concept. Production AI that survives a regulatory audit.",
   },
   {
     slug: "enterprise-workflow-onboarding",
     name: "Enterprise Workflow & Onboarding Systems",
     tagline:
-      "KYC/KYB automation, approval workflows, and ERP systems for regulated industries — where a workflow error is a compliance event.",
+      "KYC/KYB automation, approval workflows, and ERP systems for regulated industries, where a workflow error is a compliance event.",
     icon: ClipboardCheck,
     overview:
-      "In regulated operations, a workflow mistake is not an inconvenience — it is a compliance event with a paper trail. We automate onboarding and approval workflows that move fast and stay defensible: clearing the routine majority automatically, routing genuine edge cases to a reviewer with full context, and writing an evidence trail for every decision.",
+      "In regulated operations, a workflow mistake is not an inconvenience. It is a compliance event with a paper trail. We automate onboarding and approval workflows that move fast and stay defensible: clearing the routine majority automatically, routing genuine edge cases to a reviewer with full context, and writing an evidence trail for every decision.",
     whatWeBuild: [
       "Digital KYC Platforms",
       "KYB Verification Systems",
@@ -184,7 +184,7 @@ export const services: Service[] = [
       },
       {
         title: "Context for the reviewer",
-        text: "When a case needs judgement, the reviewer sees everything — no tab-hopping.",
+        text: "When a case needs judgment, the reviewer sees everything: no tab-hopping.",
       },
       {
         title: "Evidence for every decision",
@@ -205,7 +205,7 @@ export const services: Service[] = [
       "Gap assessment, implementation, and ongoing posture management across MAS TRM, RBI, SAMA, and CBUAE.",
     icon: ShieldCheck,
     overview:
-      "Compliance is not a policy binder — it is a working control set that an examiner tests. We reach and hold defensible posture across the region's major regimes, because we have implemented these controls in a live regulated environment and watched them be tested. Findings close through engineering change, which is exactly why they stay closed.",
+      "Compliance is not a policy binder. It is a working control set that an examiner tests. We reach and hold defensible posture across the region's major regimes, because we have implemented these controls in a live regulated environment and watched them be tested. Findings close through engineering change, which is exactly why they stay closed.",
     whatWeBuild: [
       "Compliance Management Platforms",
       "MAS TRM Compliance Solutions",
@@ -239,7 +239,7 @@ export const services: Service[] = [
     approach: [
       {
         title: "Controls mapped to live systems",
-        text: "Every control ties to a real system and its evidence — not a document.",
+        text: "Every control ties to a real system and its evidence, not a document.",
       },
       {
         title: "Implementation, not paperwork",
@@ -247,7 +247,7 @@ export const services: Service[] = [
       },
       {
         title: "The examiner's-eye view",
-        text: "We prioritise what examiners test first, because we have been in the room.",
+        text: "We prioritize what examiners test first, because we have been in the room.",
       },
       {
         title: "Posture on a calendar",
@@ -255,16 +255,16 @@ export const services: Service[] = [
       },
     ],
     signature:
-      "We know what examiners actually check — because we have watched these controls be tested.",
+      "We know what examiners actually check, because we have watched these controls be tested.",
   },
   {
     slug: "mobile-field-commerce",
     name: "Mobile & Field Commerce Platforms",
     tagline:
-      "Consumer-grade mobile payment acceptance for field conditions — offline-first, QR and NFC, iOS and Android from one codebase.",
+      "Consumer-grade mobile payment acceptance for field conditions: offline-first, QR and NFC, iOS and Android from one codebase.",
     icon: Smartphone,
     overview:
-      "In the field, connectivity is not guaranteed — but transaction integrity has to be. We build mobile commerce platforms that keep taking payments when the network drops and never lose a transaction to it: offline-first as the primary design, deterministic sync when the connection returns, and a consumer-grade experience for merchants who are not sitting at a desk.",
+      "In the field, connectivity is not guaranteed, but transaction integrity has to be. We build mobile commerce platforms that keep taking payments when the network drops and never lose a transaction to it: offline-first as the primary design, deterministic sync when the connection returns, and a consumer-grade experience for merchants who are not sitting at a desk.",
     whatWeBuild: [
       "Mobile Payment Applications",
       "Merchant POS Applications",
@@ -298,7 +298,7 @@ export const services: Service[] = [
     approach: [
       {
         title: "Offline as the primary path",
-        text: "The happy path assumes no network; connectivity is an optimisation, not a requirement.",
+        text: "The happy path assumes no network; connectivity is an optimization, not a requirement.",
       },
       {
         title: "Idempotent replay",
@@ -314,7 +314,7 @@ export const services: Service[] = [
       },
     ],
     signature:
-      "Handling connectivity loss without transaction-integrity failure — a million times over.",
+      "Handling connectivity loss without transaction-integrity failure, a million times over.",
   },
 ];
 

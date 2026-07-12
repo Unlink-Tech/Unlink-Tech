@@ -97,7 +97,7 @@ export function SiteFooter() {
           <div className="lg:col-span-5">
             <Logo className="h-10" />
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Financial infrastructure for regulated businesses — shipped and
+              Financial infrastructure for regulated businesses, shipped and
               running in production.
             </p>
 

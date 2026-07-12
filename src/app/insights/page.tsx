@@ -8,7 +8,7 @@ import { Reveal } from "@/components/reveal";
 export const metadata: Metadata = {
   title: "Insights",
   description:
-    "Field notes from production — deep dives on payments, reconciliation, fraud ML, compliance, and governed AI, written by the engineers who shipped the systems.",
+    "Field notes from production: deep dives on payments, reconciliation, fraud ML, compliance, and governed AI, written by the engineers who shipped the systems.",
 };
 
 const LINKEDIN_URL =
@@ -26,7 +26,7 @@ export default function InsightsPage() {
       <PageHero
         eyebrow="Insights"
         title="Field notes from production."
-        subtitle="Deep dives on payments, reconciliation, fraud ML, compliance, and governed AI — written by the engineers who shipped the systems, not a marketing team."
+        subtitle="Deep dives on payments, reconciliation, fraud ML, compliance, and governed AI, written by the engineers who shipped the systems, not a marketing team."
       />
 
       {/* LinkedIn connect banner */}
@@ -46,7 +46,7 @@ export default function InsightsPage() {
                   We publish first on LinkedIn
                 </h2>
                 <p className="mt-1 text-muted-foreground">
-                  Every deep dive reaches our network first — follow along for
+                  Every deep dive reaches our network first. Follow along for
                   new writing as it ships.
                 </p>
               </div>

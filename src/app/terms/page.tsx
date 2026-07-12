@@ -11,8 +11,7 @@ export const metadata: Metadata = {
 const raised =
   "shadow-[8px_8px_16px_var(--neu-dark),-8px_-8px_16px_var(--neu-light)]";
 
-const intro =
-  "Welcome to Unlink Technologies! By accessing or using our website, you agree to the following terms and conditions. Please read them carefully, as they govern your use of our services. If you do not agree with these terms, we request that you discontinue using our website. Unlink Technologies Private Limited (hereby called Unlink Technologies) reserves the right to update or modify these terms at any time, so we encourage you to review this page regularly.";
+const intro = `Welcome to Unlink Technologies. By accessing or using our website, you agree to the following terms and conditions. Please read them carefully, as they govern your use of our services. If you do not agree with these terms, we request that you discontinue using our website. Unlink Technologies Private Limited (hereinafter referred to as "Unlink Technologies") reserves the right to update or modify these terms at any time, so we encourage you to review this page regularly.`;
 
 type Block =
   | { kind: "p"; text: string }
@@ -161,7 +160,7 @@ export default function TermsPage() {
       <PageHero
         eyebrow="Legal"
         title="Terms & Conditions"
-        subtitle="Please read these terms carefully — by accessing or using the Unlink Technologies website, you agree to them."
+        subtitle="Please read these terms carefully. By accessing or using the Unlink Technologies website, you agree to them."
       />
 
       <section className="px-4 py-16 sm:px-6 sm:py-20">

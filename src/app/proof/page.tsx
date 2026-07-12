@@ -45,8 +45,8 @@ const stats: { figure: string; metric: string }[] = [
   { figure: "−60%", metric: "False positives vs rule-based system" },
   { figure: "<50ms", metric: "ML scoring latency in production" },
   { figure: "40 → 4", metric: "Onboarding manual decisions per day" },
-  { figure: "−70%", metric: "Onboarding time reduction" },
-  { figure: "−85%", metric: "MAS TRM findings reduced post-engagement" },
+  { figure: "−70%", metric: "Onboarding time" },
+  { figure: "−85%", metric: "MAS TRM findings post-engagement" },
   { figure: "4.8★ / 1M+", metric: "Mobile platform rating / transactions" },
   { figure: "−60%", metric: "Time-to-market vs in-house build" },
 ];
@@ -83,11 +83,11 @@ const briefs: Brief[] = [
     domain: "Settlement & reconciliation",
     product: "Cimmetri",
     problem:
-      "Reconcile every leg of a payment against bank statements and processor reports at high daily volume — with zero tolerance for a missed cent.",
+      "Reconcile every leg of a payment against bank statements and processor reports at high daily volume, with zero tolerance for a missed cent.",
     complexity:
       "Settlement timing differences, partial captures, chargebacks, and multi-party disputes that a naive matcher silently drops.",
     architecture:
-      "An event-sourced ledger with deterministic matching rules, exception queues for the minority of cases that need human judgement, and an immutable audit trail on every match and adjustment.",
+      "An event-sourced ledger with deterministic matching rules, exception queues for the minority of cases that need human judgment, and an immutable audit trail on every match and adjustment.",
     outcome:
       "100% reconciliation accuracy on $50M+ daily · month-end close 15 → 3 days · audit pack in 48 hours.",
     origin: "This system is where Cimmetri came from.",
@@ -97,14 +97,14 @@ const briefs: Brief[] = [
     domain: "Fraud & risk ML",
     product: null,
     problem:
-      "Catch fraud in real time without burying the operations team in false positives — and prove every decision to a regulator.",
+      "Catch fraud in real time without burying the operations team in false positives, and prove every decision to a regulator.",
     complexity:
       "Severe class imbalance, concept drift, a sub-50ms latency budget, and MAS FEAT explainability obligations.",
     architecture:
       "A feature store feeding gradient-boosted and graph models, shadow-deployed against the incumbent rules engine, with per-decision reason codes captured at inference time.",
     outcome: "98.7% detection · −60% false positives vs rules · <50ms scoring.",
     origin:
-      "This work seeded our AI & ML practice — and the governance behind Enclave.",
+      "This work seeded our AI & ML practice, and the governance behind Enclave.",
   },
   {
     icon: ClipboardCheck,
@@ -125,7 +125,7 @@ const briefs: Brief[] = [
     domain: "Regulatory compliance technology",
     product: null,
     problem:
-      "Reach and hold a defensible compliance posture across MAS TRM, RBI, SAMA, and CBUAE — a working control set, not a policy binder.",
+      "Reach and hold a defensible compliance posture across MAS TRM, RBI, SAMA, and CBUAE: a working control set, not a policy binder.",
     complexity:
       "Mapping controls to live systems, continuous evidence collection, and knowing which findings an examiner actually tests first.",
     architecture:
@@ -139,7 +139,7 @@ const briefs: Brief[] = [
     domain: "Governed enterprise AI",
     product: "Enclave",
     problem:
-      "Give an enterprise useful AI over its own documents without the data ever leaving its boundary — and cite every answer to a source.",
+      "Give an enterprise useful AI over its own documents without the data ever leaving its boundary, and cite every answer to a source.",
     complexity:
       "Retrieval quality on messy internal corpora, source attribution, document-level access control, and deployment into VPC, on-prem, or air-gapped environments.",
     architecture:
@@ -230,7 +230,7 @@ export default function ProofPage() {
       <section className="px-4 py-16 sm:px-6 sm:py-20">
         <Reveal className="mx-auto max-w-3xl text-center">
           <p className="text-balance text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Our client work is confidential — which is what you would want if you
+            Our client work is confidential, which is what you would want if you
             were the client. What we share instead is the depth of the work: 5+
             years of fintech-grade systems across payments, settlement, fraud,
             onboarding, compliance, and enterprise AI.{" "}
@@ -250,7 +250,7 @@ export default function ProofPage() {
             <SectionHeading
               eyebrow="Platform statistics"
               title="By the numbers."
-              subtitle="Every claim carries a figure — and none requires a client name."
+              subtitle="Every claim carries a figure, and none requires a client name."
             />
           </Reveal>
           <Reveal>
@@ -280,7 +280,7 @@ export default function ProofPage() {
             <SectionHeading
               eyebrow="Capability briefs"
               title="Technical depth, not a reference list."
-              subtitle="How the hardest systems were actually built — and the products they became."
+              subtitle="How the hardest systems were actually built, and the products they became."
             />
           </Reveal>
           <div className="space-y-8">

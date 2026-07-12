@@ -21,7 +21,7 @@ import { Reveal } from "@/components/reveal";
 export const metadata: Metadata = {
   title: "Cimmetri",
   description:
-    "Cimmetri is a cloud-native financial operations platform unifying reconciliation, settlement, exception resolution, and audit — closing your books in 3 days, not 15.",
+    "Cimmetri is a cloud-native financial operations platform unifying reconciliation, settlement, exception resolution, and audit, closing your books in 3 days, not 15.",
 };
 
 const raised =
@@ -36,7 +36,7 @@ const gradientText =
 /* ---------------- data ---------------- */
 
 const problemStats = [
-  { value: "30–40%", label: "of back-office finance labour goes to reconciliation & exception handling" },
+  { value: "30–40%", label: "of back-office finance labor goes to reconciliation & exception handling" },
   { value: "70%", label: "of mid-market teams still reconcile in spreadsheets & tribal knowledge" },
   { value: "$1.5–2.5M", label: "a year for a 10-person exception-triage team at a single bank" },
 ];
@@ -93,7 +93,7 @@ const stages: { n: string; icon: LucideIcon; name: string; text: string; note?: 
 const differentiators: { title: string; text: string; code?: string; tag?: string }[] = [
   {
     title: "Manifest-driven everything",
-    text: "Pipelines, rules, thresholds, and workflows are version-controlled declarative configuration — code-reviewed, CI-deployed, rolled back in seconds. Operations teams evolve their own reconciliation logic without waiting on engineering.",
+    text: "Pipelines, rules, thresholds, and workflows are version-controlled declarative configuration: code-reviewed, CI-deployed, rolled back in seconds. Operations teams evolve their own reconciliation logic without waiting on engineering.",
     tag: "No incumbent does this.",
   },
   {
@@ -103,11 +103,11 @@ const differentiators: { title: string; text: string; code?: string; tag?: strin
   },
   {
     title: "Atomic manual-match",
-    text: "Pair or split rows and the match, counts, and audit commit together the instant you save. Break-apart is remembered forever. Rivals reconcile only on the next run.",
+    text: "Pair or split rows, and the match, counts, and audit commit together the instant you save. Break-apart is remembered forever. Rivals reconcile only on the next run.",
   },
   {
     title: "First-class duplicates",
-    text: "Duplicates are a peer category with persistent dismissals, clustering, and cross-run bulk actions — not folded into a generic exception bucket.",
+    text: "Duplicates are a peer category with persistent dismissals, clustering, and cross-run bulk actions, not folded into a generic exception bucket.",
   },
 ];
 
@@ -127,7 +127,7 @@ export default function CimmetriPage() {
       <PageHero
         eyebrow="Reconciliation & financial operations"
         title="Reconciliation that closes your books in 3 days, not 15."
-        subtitle="Cimmetri is a cloud-native financial operations platform that unifies reconciliation, settlement, exception resolution, and audit on one system — built for payment companies and regulated finance teams reconciling high volumes across disparate sources."
+        subtitle="Cimmetri is a cloud-native financial operations platform that unifies reconciliation, settlement, exception resolution, and audit on one system, built for payment companies and regulated finance teams reconciling high volumes across disparate sources."
       />
 
       {/* The problem */}
@@ -136,8 +136,8 @@ export default function CimmetriPage() {
           <Reveal className="mb-12">
             <SectionHeading
               eyebrow="The problem"
-              title="Finance runs on data that doesn’t agree."
-              subtitle="Reconciling it is a fixed, rising cost — and it grows with every counterparty you add."
+              title="Finance runs on data that doesn't agree."
+              subtitle="Reconciling it is a fixed, rising cost, and it grows with every counterparty you add."
             />
           </Reveal>
           <Reveal>
@@ -150,7 +150,7 @@ export default function CimmetriPage() {
           <Reveal className="mt-10">
             <div className={`rounded-3xl bg-background p-8 ${raised}`}>
               <p className="text-base leading-relaxed text-muted-foreground">
-                Every new counterparty adds another feed — and the integration
+                Every new counterparty adds another feed, and the integration
                 burden grows with each one:
               </p>
               <ul className="mt-5 flex flex-wrap gap-2.5">
@@ -173,7 +173,7 @@ export default function CimmetriPage() {
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
           <Reveal className="mb-12">
             <SectionHeading
-              eyebrow="Why it’s harder than it looks"
+              eyebrow="Why it's harder than it looks"
               title="The real cost is in the edges."
             />
           </Reveal>
@@ -249,7 +249,7 @@ export default function CimmetriPage() {
             <SectionHeading
               eyebrow="What sets it apart"
               title="What no incumbent does."
-              subtitle="The difference is not features — it’s where the control lives."
+              subtitle="The difference is not features. It's where the control lives."
             />
           </Reveal>
           <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
@@ -288,7 +288,7 @@ export default function CimmetriPage() {
             <SectionHeading
               eyebrow="Outcomes"
               title="What changes when you run it."
-              subtitle="Headcount decoupled from volume — no rip-and-replace."
+              subtitle="Headcount decoupled from volume. No rip-and-replace."
             />
           </Reveal>
           <Reveal>
@@ -320,7 +320,7 @@ export default function CimmetriPage() {
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
               Run 30 days of your own settlement data through the Cimmetri engine
-              and receive a full exception report within 48 hours — unmatched
+              and receive a full exception report within 48 hours: unmatched
               exceptions with category and age breakdown, and a full lifecycle
               summary.
             </p>
@@ -343,7 +343,7 @@ export default function CimmetriPage() {
             </p>
             <p className="mt-3 text-lg leading-relaxed text-muted-foreground">
               Cimmetri grew out of settlement systems we engineered and ran for
-              clients — including a settlement engine at{" "}
+              clients, including a settlement engine at{" "}
               <span className="font-medium text-foreground">
                 100% reconciliation accuracy on $50M+ daily volume
               </span>

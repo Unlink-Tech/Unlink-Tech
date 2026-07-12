@@ -24,7 +24,8 @@ export const metadata: Metadata = {
     default: "Unlink Technologies",
     template: "%s | Unlink Technologies",
   },
-  description: "Unlink Technologies — building modern software.",
+  description:
+    "Financial infrastructure for regulated businesses: payments, reconciliation, merchant onboarding, and governed enterprise AI, shipped and running in production.",
   icons: {
     icon: [
       { url: "/favicon-light.ico", media: "(prefers-color-scheme: light)" },

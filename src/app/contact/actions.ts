@@ -31,8 +31,8 @@ const schema = z.object({
   challenge: z
     .string()
     .trim()
-    .min(10, "Tell us a little more — at least 10 characters.")
-    .max(4000, "That's a bit long — please trim it down."),
+    .min(10, "Tell us a little more: at least 10 characters.")
+    .max(4000, "That's a bit long. Please trim it down."),
   timeline: z.enum(TIMELINES, { message: "Select a timeline." }),
 });
 
@@ -79,24 +79,24 @@ export async function submitContact(
   const data = parsed.data;
 
   if (!process.env.RESEND_API_KEY) {
-    console.error("[contact] RESEND_API_KEY is not set — email not sent.");
+    console.error("[contact] RESEND_API_KEY is not set, email not sent.");
     return {
       ok: false,
       values: raw,
       formError:
-        "Sorry — our enquiry inbox isn't connected yet. Please email sales@unlink-technologies.com directly for now.",
+        "Sorry, our enquiry inbox isn't connected yet. Please email sales@unlink-technologies.com directly for now.",
     };
   }
 
-  const subject = `New enquiry — ${data.name}${
+  const subject = `New enquiry: ${data.name}${
     data.company ? ` · ${data.company}` : ""
   }`;
 
   const rows: [string, string][] = [
     ["Name", data.name],
     ["Email", data.email],
-    ["Company", data.company || "—"],
-    ["Phone", data.phone || "—"],
+    ["Company", data.company || "-"],
+    ["Phone", data.phone || "-"],
     ["Timeline", data.timeline],
   ];
 
