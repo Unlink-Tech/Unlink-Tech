@@ -32,7 +32,7 @@ export function Hero() {
         </h1>
 
         <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-500 dark:text-slate-400">
-          Four production-grade products and a specialist engineering team —
+          Four production-grade products and a specialist engineering team:
           payments, reconciliation, onboarding, and governed enterprise AI,
           shipped and running under real transaction volume and real regulators
           for 5+ years.

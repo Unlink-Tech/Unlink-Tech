@@ -22,7 +22,7 @@ import { Reveal } from "@/components/reveal";
 export const metadata: Metadata = {
   title: "Enclave",
   description:
-    "Enclave is a private, governed AI platform that unifies your documents, knowledge, and live databases behind one plain-English interface — every answer cited, every request governed, inside your boundary.",
+    "Enclave is a private, governed AI platform that unifies your documents, knowledge, and live databases behind one plain-English interface: every answer cited, every request governed, inside your boundary.",
 };
 
 const raised =
@@ -40,7 +40,7 @@ const problems: { icon: LucideIcon; title: string; text: string }[] = [
   {
     icon: Search,
     title: "~20 minutes lost per search",
-    text: "Answers are scattered across documents, wikis, and inboxes — every employee loses roughly 20 minutes to knowledge search, every day.",
+    text: "Answers are scattered across documents, wikis, and inboxes. Every employee loses roughly 20 minutes to knowledge search, every day.",
   },
   {
     icon: Database,
@@ -50,7 +50,7 @@ const problems: { icon: LucideIcon; title: string; text: string }[] = [
   {
     icon: ShieldAlert,
     title: "Shadow AI leaks data",
-    text: "When staff reach for consumer AI to move faster, sensitive data leaves the governed boundary — a compliance incident waiting to be discovered.",
+    text: "When staff reach for consumer AI to move faster, sensitive data leaves the governed boundary, a compliance incident waiting to be discovered.",
   },
 ];
 
@@ -65,17 +65,17 @@ const capabilities: { icon: LucideIcon; title: string; text: string }[] = [
   {
     icon: FileText,
     title: "Knowledge retrieval with citations",
-    text: "Answers grounded in your own sources via a retrieval-augmented pipeline — every claim cited to the exact document or record.",
+    text: "Answers grounded in your own sources via a retrieval-augmented pipeline: every claim cited to the exact document or record.",
   },
   {
     icon: Database,
     title: "Live data without SQL",
-    text: "Plain-English questions become read-only, SELECT-only queries on PostgreSQL and MySQL. The AI can read your data — never modify it.",
+    text: "Plain-English questions become read-only, SELECT-only queries on PostgreSQL and MySQL. The AI can read your data, never modify it.",
   },
   {
     icon: Network,
     title: "Agent orchestration",
-    text: "An orchestrator dispatches specialist agents — knowledge, SQL, tools, reasoning, guardrails — in parallel, then merges the results into one sourced answer.",
+    text: "An orchestrator dispatches specialist agents (knowledge, SQL, tools, reasoning, guardrails) in parallel, then merges the results into one sourced answer.",
   },
   {
     icon: ShieldCheck,
@@ -88,12 +88,12 @@ const deployments: { icon: LucideIcon; title: string; text: string }[] = [
   {
     icon: Server,
     title: "Customer-hosted",
-    text: "Your cloud, your VPC, or fully on-premises — documents, embeddings, and logs never leave your boundary. Self-hosted open-weight models available for air-gapped environments.",
+    text: "Your cloud, your VPC, or fully on-premises. Documents, embeddings, and logs never leave your boundary. Self-hosted open-weight models available for air-gapped environments.",
   },
   {
     icon: Cloud,
     title: "Unlink-hosted",
-    text: "A fully managed service, isolated per tenant — the fastest path to value, with no infrastructure for your team to run.",
+    text: "A fully managed service, isolated per tenant, the fastest path to value, with no infrastructure for your team to run.",
   },
 ];
 
@@ -117,8 +117,8 @@ export default function EnclavePage() {
     <>
       <PageHero
         eyebrow="Private, governed enterprise AI"
-        title="Enterprise AI that knows your business — and stays inside your boundary."
-        subtitle="Enclave is a private, governed AI platform that unifies your documents, institutional knowledge, and live databases behind one plain-English interface — every answer cited to its exact source, every request governed by your roles and your audit trail."
+        title="Enterprise AI that knows your business, and stays inside your boundary."
+        subtitle="Enclave is a private, governed AI platform that unifies your documents, institutional knowledge, and live databases behind one plain-English interface: every answer cited to its exact source, every request governed by your roles and your audit trail."
       />
 
       {/* The problem */}
@@ -128,7 +128,7 @@ export default function EnclavePage() {
             <SectionHeading
               eyebrow="The problem"
               title="Information-rich, access-poor."
-              subtitle="The answers exist — they’re just buried, gated, or quietly leaking out."
+              subtitle="The answers exist; they're just buried, gated, or quietly leaking out."
             />
           </Reveal>
           <div className="grid gap-6 md:grid-cols-3">
@@ -158,7 +158,7 @@ export default function EnclavePage() {
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
           <Reveal className="mb-12">
             <SectionHeading
-              eyebrow="Why it’s harder than it looks"
+              eyebrow="Why it's harder than it looks"
               title="An architecture problem before a model problem."
             />
           </Reveal>
@@ -166,7 +166,7 @@ export default function EnclavePage() {
             <div className={`rounded-3xl bg-background p-8 ${raised}`}>
               <p className="text-base leading-relaxed text-muted-foreground">
                 A chatbot bolted onto a document store hallucinates, ignores
-                access rights, and writes to nothing — or worse, to everything.
+                access rights, and writes to nothing, or worse, to everything.
                 Governed enterprise AI has to do four things at once:
               </p>
               <ul className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -282,7 +282,7 @@ export default function EnclavePage() {
           </Reveal>
           <Reveal className="mt-6">
             <p className="text-sm text-muted-foreground">
-              Enterprise pricing is packaged separately — but the flat,
+              Enterprise pricing is packaged separately, but the flat,
               transparent cost model is itself a differentiator.
             </p>
           </Reveal>
@@ -295,7 +295,7 @@ export default function EnclavePage() {
           <Reveal className="mb-12">
             <SectionHeading
               eyebrow="Outcomes"
-              title="What changes when it’s in."
+              title="What changes when it's in."
             />
           </Reveal>
           <Reveal>
@@ -349,7 +349,7 @@ export default function EnclavePage() {
             </p>
             <p className="mt-3 text-lg leading-relaxed text-muted-foreground">
               Enclave&apos;s governance model comes from the same discipline as
-              our regulated builds — RBAC designed for audit, SELECT-only data
+              our regulated builds: RBAC designed for audit, SELECT-only data
               access, full trails. Built by the team behind{" "}
               <span className="font-medium text-foreground">
                 MAS FEAT-compliant fraud AI in production

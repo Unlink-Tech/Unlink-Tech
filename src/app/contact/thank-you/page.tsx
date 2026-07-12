@@ -8,7 +8,7 @@ import { NeuButton } from "@/components/ui/neu-button";
 export const metadata: Metadata = {
   title: "Thank you",
   description:
-    "Thanks for reaching out to Unlink Technologies — an engineer will read your enquiry and reply personally, usually within one business day.",
+    "Thanks for reaching out to Unlink Technologies. An engineer will read your enquiry and reply personally, usually within one business day.",
   robots: { index: false },
 };
 
@@ -22,13 +22,13 @@ const next = [
     icon: Mail,
     title: "It's landed with the right people",
     description:
-      "Your enquiry has been sent straight to our team at sales@unlink-technologies.com — no ticket queue in between.",
+      "Your enquiry has been sent straight to our team at sales@unlink-technologies.com, with no ticket queue in between.",
   },
   {
     icon: Clock,
     title: "An engineer replies personally",
     description:
-      "Someone who actually builds these systems will read it and respond — usually within one business day.",
+      "Someone who actually builds these systems will read it and respond, usually within one business day.",
   },
   {
     icon: ShieldCheck,
@@ -43,7 +43,7 @@ export default function ThankYouPage() {
     <>
       <PageHero
         eyebrow="Contact"
-        title="Thanks — your message is on its way."
+        title="Thanks. Your message is on its way."
         subtitle="We've received your enquiry and it's now with our engineering team. Here's what happens next."
       />
 
@@ -60,7 +60,7 @@ export default function ThankYouPage() {
             </h2>
             <p className="mx-auto mt-3 max-w-xl leading-relaxed text-muted-foreground">
               Thank you for reaching out to Unlink Technologies. A real engineer
-              will read what you sent and get back to you — usually within one
+              will read what you sent and get back to you, usually within one
               business day.
             </p>
 
@@ -88,7 +88,7 @@ export default function ThankYouPage() {
                 </Link>
               </NeuButton>
               <NeuButton asChild variant="neutral" size="lg">
-                <Link href="/proof">Explore our proof &amp; capabilities</Link>
+                <Link href="/proof">Explore our proof and capabilities</Link>
               </NeuButton>
             </div>
           </div>

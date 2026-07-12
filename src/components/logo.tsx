@@ -10,7 +10,7 @@ export function Logo({ className }: { className?: string }) {
   return (
     <Link
       href="/"
-      aria-label="Unlink Technologies — home"
+      aria-label="Unlink Technologies, home"
       className="flex items-center"
     >
       {/* light theme → dark-tagline logo (legible on the light surface) */}

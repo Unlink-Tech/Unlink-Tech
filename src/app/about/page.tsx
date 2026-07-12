@@ -84,8 +84,8 @@ export default function AboutPage() {
             <Grad>Enclave</Grad>, our <Grad>Payment Gateway</Grad>, and{" "}
             <Grad>Merchant Onboarding</Grad>.{" "}
             <Em>
-              That is not a claim — it is the foundation of everything we do for
-              the next client.
+              That history is not marketing. It is the foundation of everything
+              we do for the next client.
             </Em>
           </p>
         </Reveal>
@@ -106,7 +106,7 @@ export default function AboutPage() {
               <Em>without a single reconciliation error</Em>. Most firms can
               build software. Very few understand the compliance, regulatory,
               and operational consequences of the decisions inside it.{" "}
-              <Em>We do</Em> — because we have already made them, under real
+              <Em>We do</Em>, because we have already made them, under real
               production conditions, with real consequences.
             </StatementCard>
           </Reveal>
@@ -117,12 +117,12 @@ export default function AboutPage() {
               eyebrow="On AI"
               heading="Can&apos;t AI just build this?"
             >
-              We use AI tooling in our engineering — it makes us faster, and we
-              built <Em>Enclave</Em>, so we understand it deeply. What AI cannot
-              replace is <Em>domain judgement</Em>: knowing which architectural
-              decision fails a MAS audit six months after go-live, or how a
-              settlement system handles a reconciliation dispute at{" "}
-              <Em>$50M daily volume</Em>. That knowledge comes from production.{" "}
+              We use AI tooling in our engineering. It makes us faster, and we
+              built <Em>Enclave</Em>, so we understand the technology deeply.
+              What AI cannot replace is <Em>domain judgment</Em>: knowing which
+              architectural decision fails a MAS audit six months after go-live,
+              or how a settlement system handles a reconciliation dispute at{" "}
+              <Em>$50M+ daily volume</Em>. That knowledge comes from production.{" "}
               <Em>It is not in a training dataset.</Em>
             </StatementCard>
           </Reveal>

@@ -34,7 +34,7 @@ const services: Service[] = [
     span: "sm:col-span-2 lg:col-span-2",
     title: "Fintech Platform Engineering",
     description:
-      "Payment gateways, settlement engines, and merchant platforms — built for regulated environments and high-volume scale. We know the architecture decision that determines whether a gateway survives 10× traffic, because we have made it.",
+      "Payment gateways, settlement engines, and merchant platforms, built for regulated environments and high-volume scale. We know the architecture decision that determines whether a gateway survives 10× traffic, because we have made it.",
     stats: ["100% reconciliation on $50M+/day", "99.99% uptime", "PCI-DSS Level 1"],
   },
   {
@@ -43,7 +43,7 @@ const services: Service[] = [
     span: "",
     title: "AI & ML Product Development",
     description:
-      "Fraud, anomaly, and risk scoring — with model governance and explainability from day one.",
+      "Fraud, anomaly, and risk scoring, with model governance and explainability from day one.",
     stats: ["98.7% detection", "−60% false positives", "MAS FEAT-compliant"],
   },
   {
@@ -52,7 +52,7 @@ const services: Service[] = [
     span: "",
     title: "Enterprise Workflow & Onboarding",
     description:
-      "KYC/KYB automation, approval workflows, and ERP for regulated industries — where a workflow error is a compliance event.",
+      "KYC/KYB automation, approval workflows, and ERP for regulated industries, where a workflow error is a compliance event.",
     stats: ["40/day → 4/day", "95% automated", "Full audit trail"],
   },
   {
@@ -70,7 +70,7 @@ const services: Service[] = [
     span: "",
     title: "Mobile & Field Commerce",
     description:
-      "Consumer-grade mobile acceptance for field conditions — offline-first, QR + NFC, iOS & Android from one codebase.",
+      "Consumer-grade mobile acceptance for field conditions: offline-first, QR + NFC, iOS & Android from one codebase.",
     stats: ["4.8★ rating", "1M+ transactions", "Offline-first"],
   },
 ];
@@ -146,7 +146,7 @@ export function ServicesBento() {
           <SectionHeading
             eyebrow="Custom Engineering"
             title="Five service lines. One domain: regulated fintech."
-            subtitle="When no product fits, the same team builds it — every capability already shipped, audited, and run in production."
+            subtitle="When no product fits, the same team builds it. Every capability is already shipped, audited, and run in production."
           />
         </Reveal>
 

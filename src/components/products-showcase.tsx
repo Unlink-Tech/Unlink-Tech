@@ -36,7 +36,7 @@ const products: Product[] = [
     category: "Reconciliation & financial operations",
     icon: Scale,
     description:
-      "Close the books faster and hand auditors a ready package — not a month-end scramble.",
+      "Close the books faster and hand auditors a ready package, not a month-end scramble.",
     hero: { value: "15 → 3 days", caption: "Month-end close" },
     points: [
       "Audit package in 48 hours",
@@ -49,7 +49,7 @@ const products: Product[] = [
     category: "Private, governed enterprise AI",
     icon: BrainCircuit,
     description:
-      "Enterprise AI that answers in seconds and cites every claim — running entirely inside your boundary.",
+      "Enterprise AI that answers in seconds and cites every claim, running entirely inside your boundary.",
     hero: { value: "Seconds", caption: "vs 20-minute manual searches" },
     points: [
       "Every claim cited to its source",
@@ -144,7 +144,7 @@ export function ProductsShowcase() {
           <SectionHeading
             eyebrow="Products"
             title="Four products. Proven in production."
-            subtitle="Infrastructure you deploy instead of build — each one measured on a number that matters."
+            subtitle="Infrastructure you deploy instead of building. Each one is measured on a number that matters."
           />
         </Reveal>
 

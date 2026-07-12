@@ -23,7 +23,7 @@ import { Reveal } from "@/components/reveal";
 export const metadata: Metadata = {
   title: "Payment Gateway",
   description:
-    "A payment gateway that survives 10× traffic and settles when it says it will — high-throughput acceptance, intelligent routing, and reliable settlement, engineered for production load.",
+    "A payment gateway that survives 10× traffic and settles when it says it will: high-throughput acceptance, intelligent routing, and reliable settlement, engineered for production load.",
 };
 
 const raised =
@@ -39,12 +39,12 @@ const problems: { icon: LucideIcon; title: string; text: string }[] = [
   {
     icon: Activity,
     title: "The failure is architectural",
-    text: "Most gateway failures under load are not server capacity. They are one architectural decision made in week 2 of the build that nobody revisited — until peak traffic found it.",
+    text: "Most gateway failures under load are not about server capacity. They are one architectural decision made in week 2 of the build that nobody revisited, until peak traffic found it.",
   },
   {
     icon: Scale,
-    title: "Settlement you can’t prove",
-    text: "A gateway that accepts payments but cannot prove settlement to the rupee creates a reconciliation problem you pay for every month afterwards.",
+    title: "Settlement you can't prove",
+    text: "A gateway that accepts payments but cannot prove settlement to the cent creates a reconciliation problem you pay for every month afterward.",
   },
 ];
 
@@ -52,22 +52,22 @@ const valueProps: { icon: LucideIcon; title: string; text: string }[] = [
   {
     icon: Gauge,
     title: "Built for throughput",
-    text: "10,000+ TPS peak capacity at 99.99% uptime in production — peak load is a Tuesday, not a crisis.",
+    text: "10,000+ TPS peak capacity at 99.99% uptime in production. Peak load is a Tuesday, not a crisis.",
   },
   {
     icon: Route,
     title: "Intelligent routing",
-    text: "A universal routing engine picks the optimal path per transaction in real time — improving authorization rates and cutting cost per transaction across 40+ currencies and multiple rails.",
+    text: "A universal routing engine picks the optimal path per transaction in real time, improving authorization rates and cutting cost per transaction across 40+ currencies and multiple rails.",
   },
   {
     icon: Landmark,
     title: "Settlement with certainty",
-    text: "Reliable settlement including T+0 where supported, with a complete reconciliation trail behind every movement of money — natively compatible with Cimmetri.",
+    text: "Reliable settlement including T+0 where supported, with a complete reconciliation trail behind every movement of money. Natively compatible with Cimmetri.",
   },
   {
     icon: ShieldCheck,
     title: "PCI-DSS Level 1 patterns",
-    text: "Compliance designed in and proven in a real audit environment — you clear audits instead of scrambling for them.",
+    text: "Compliance designed in and proven in a real audit environment. You clear audits instead of scrambling for them.",
   },
 ];
 
@@ -107,8 +107,8 @@ export default function PaymentGatewayPage() {
     <>
       <PageHero
         eyebrow="High-throughput acceptance & routing"
-        title="A payment gateway that survives 10× traffic — and settles when it says it will."
-        subtitle="High-throughput acceptance, intelligent routing, and reliable settlement — engineered on the architecture decisions that only show up under production load."
+        title="A payment gateway that survives 10× traffic, and settles when it says it will."
+        subtitle="High-throughput acceptance, intelligent routing, and reliable settlement, engineered on the architecture decisions that only show up under production load."
       />
 
       {/* The problem */}
@@ -117,7 +117,7 @@ export default function PaymentGatewayPage() {
           <Reveal className="mb-12">
             <SectionHeading
               eyebrow="The problem"
-              title="Gateways don’t fail on capacity — they fail on a decision."
+              title="Gateways don't fail on capacity. They fail on a decision."
             />
           </Reveal>
           <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
@@ -148,7 +148,7 @@ export default function PaymentGatewayPage() {
           <Reveal className="mb-12">
             <SectionHeading
               eyebrow="What it does"
-              title="Throughput, routing, settlement — done right."
+              title="Throughput, routing, settlement, done right."
             />
           </Reveal>
           <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
@@ -240,7 +240,7 @@ export default function PaymentGatewayPage() {
               <span className={gradientText}>in action.</span>
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              A technical walkthrough with the engineers who built it — under
+              A technical walkthrough with the engineers who built it, under
               real production conditions, not a slide deck.
             </p>
             <NeuButton asChild variant="primary" size="lg" className="group mt-9">

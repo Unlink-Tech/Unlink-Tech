@@ -17,7 +17,7 @@ import { Reveal } from "@/components/reveal";
 export const metadata: Metadata = {
   title: "Products",
   description:
-    "Four products, one infrastructure standard — payments, merchant onboarding, reconciliation, and governed enterprise AI. Deploy standalone or as a connected stack.",
+    "Four products, one infrastructure standard: payments, merchant onboarding, reconciliation, and governed enterprise AI. Deploy standalone or as a connected stack.",
 };
 
 /** Neumorphic inset helper for the stat pills and icon niche. */
@@ -38,7 +38,7 @@ const products: Product[] = [
     name: "Payment Gateway",
     description: "Accept, route, and settle payments at scale.",
     icon: CreditCard,
-    stats: ["10K+ TPS", "99.99% uptime", "40+ currencies"],
+    stats: ["10,000+ TPS", "99.99% uptime", "40+ currencies"],
   },
   {
     slug: "merchant-onboarding",
@@ -113,7 +113,7 @@ export default function ProductsPage() {
       <PageHero
         eyebrow="Products"
         title="Four products. One infrastructure standard."
-        subtitle="Each product began as a system we built and ran for a client in production. We kept what survived — the architecture, the edge cases, the audit trail — and made it deployable. Use them standalone or as a connected stack: accept payments, onboard merchants, reconcile every transaction, and put a governed AI layer over all of it."
+        subtitle="Each product began as a system we built and ran for a client in production. We kept what survived: the architecture, the edge cases, the audit trail. Then we made it deployable. Use them standalone or as a connected stack: accept payments, onboard merchants, reconcile every transaction, and put a governed AI layer over all of it."
       />
 
       {/* card grid */}
@@ -133,7 +133,7 @@ export default function ProductsPage() {
         ctaLabel="Custom Engineering"
         text={
           <>
-            Need something none of these solve?{" "}
+            Need something none of these solves?{" "}
             <span className="font-medium text-foreground">
               The same team builds custom financial platforms end to end.
             </span>

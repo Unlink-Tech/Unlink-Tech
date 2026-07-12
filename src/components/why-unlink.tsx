@@ -39,7 +39,7 @@ const steps: Step[] = [
   {
     icon: Activity,
     title: "Production scale",
-    caption: "Runs at scale — zero reconciliation errors.",
+    caption: "Runs at scale with zero reconciliation errors.",
     highlight: true,
   },
 ];
@@ -112,7 +112,7 @@ export function WhyUnlink() {
             <p>
               Most firms can build software. Very few understand the compliance,
               regulatory, and operational consequences of the decisions inside
-              it. <Em>We do</Em> — because for 5+ years we have made those
+              it. <Em>We do</Em>, because for 5+ years we have made those
               decisions under real production conditions, with real
               consequences.
             </p>

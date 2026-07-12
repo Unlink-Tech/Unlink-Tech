@@ -159,7 +159,7 @@ export default async function ServiceDetailPage({
             <SectionHeading
               eyebrow="How we deliver"
               title="Our delivery approach."
-              subtitle="The same disciplined path on every engagement — from first conversation to 24/7 production support."
+              subtitle="The same disciplined path on every engagement, from first conversation to 24/7 production support."
             />
           </Reveal>
           <Reveal>

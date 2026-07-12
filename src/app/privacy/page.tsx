@@ -14,10 +14,10 @@ const inset =
   "shadow-[inset_5px_5px_10px_var(--neu-dark),inset_-5px_-5px_10px_var(--neu-light)]";
 
 const intro = [
-  `The terms "We" / "Us" / "Our" / "Company" refer to Unlink Technologies Private Limited, and the terms "You" / "Your" / "Yourself" refer to the users.`,
+  `The terms "We" / "Us" / "Our" / "Company" refer to Unlink Technologies Private Limited, and the terms "You" / "Your" / "Yourself" refer to you, the user of the Website.`,
   "This Privacy Policy is an electronic record in accordance with the provisions of the Information Technology Act, 2000. It does not require any physical, electronic, or digital signature.",
   "This Privacy Policy is a legally binding document between you and the Company. By using the Website or any associated services, you agree to the terms outlined below. If you do not agree with this Privacy Policy, please do not use our Website or services.",
-  "This document complies with the Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data of Information) Rules, 2011, under the Information Technology Act, 2000, and addresses the collection, use, storage, and transfer of sensitive personal data or information.",
+  "This document complies with the Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011, under the Information Technology Act, 2000, and addresses the collection, use, storage, and transfer of sensitive personal data or information.",
 ];
 
 type Block =
@@ -58,7 +58,7 @@ const sections: { title: string; blocks: Block[] }[] = [
       },
       {
         kind: "p",
-        text: "The information you provide allows us to improve our services and provide you with a better experience. Your information will only be used to maintain, protect, and improve our services.",
+        text: "The information you provide helps us improve our services and give you a better experience. It will only be used to maintain, protect, and improve those services.",
       },
     ],
   },
@@ -121,7 +121,7 @@ const sections: { title: string; blocks: Block[] }[] = [
       {
         kind: "contact",
         name: "Mrs. Honey",
-        company: "Unlink Technologies Pvt Ltd.",
+        company: "Unlink Technologies Private Limited",
         email: "hr@unlink-technologies.com",
         phone: "+91-9650583832",
       },

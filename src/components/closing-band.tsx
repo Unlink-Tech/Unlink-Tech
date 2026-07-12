@@ -47,7 +47,7 @@ export function ClosingBand() {
                 </span>
               </h2>
               <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-                No sales script — a conversation with the engineers who have
+                No sales script. Just a conversation with the engineers who have
                 shipped this in production.
               </p>
 

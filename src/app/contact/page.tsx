@@ -33,7 +33,7 @@ const entryPoints: EntryPoint[] = [
   {
     icon: Phone,
     title: "Book a scoping call",
-    description: "30 minutes on your custom build — no obligation.",
+    description: "30 minutes on your custom build. No obligation.",
   },
   {
     icon: Download,
@@ -50,7 +50,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Talk to an engineer, not a sales rep."
-        subtitle="Tell us what you're building or where you're stuck. We'll tell you honestly whether we're the right team — and how we'd approach it. If we're not the right fit, the conversation will still have been useful."
+        subtitle="Tell us what you're building or where you're stuck. We'll tell you honestly whether we're the right team, and how we'd approach it. If we're not the right fit, the conversation will still have been useful."
       />
 
       <section className="px-4 pb-24 pt-16 sm:px-6">
