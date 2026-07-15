@@ -16,14 +16,14 @@ export function Logo({ className }: { className?: string }) {
       {/* light theme → dark-tagline logo (legible on the light surface) */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/logo-unlink-dark.png"
+        src="/logo-unlink-dark.svg"
         alt="Unlink Technologies"
         className={cn("w-auto dark:hidden", className)}
       />
       {/* dark theme → light-tagline logo (legible on the dark surface) */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/logo-unlink-light.png"
+        src="/logo-unlink-light.svg"
         alt="Unlink Technologies"
         className={cn("hidden w-auto dark:block", className)}
       />
