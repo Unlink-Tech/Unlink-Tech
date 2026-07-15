@@ -72,7 +72,7 @@ export function PageLoader() {
         <div className="absolute left-1/2 top-1/2 grid h-[4.5rem] w-[4.5rem] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-background shadow-[6px_6px_12px_var(--neu-dark),-6px_-6px_12px_var(--neu-light)]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/app-icon.png"
+            src="/app-icon.svg"
             alt="Unlink Technologies"
             className="h-11 w-11 object-contain"
           />
