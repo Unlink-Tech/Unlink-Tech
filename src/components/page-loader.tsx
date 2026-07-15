@@ -74,6 +74,8 @@ export function PageLoader() {
           <img
             src="/app-icon.svg"
             alt="Unlink Technologies"
+            width={151}
+            height={158}
             className="h-11 w-11 object-contain"
           />
         </div>

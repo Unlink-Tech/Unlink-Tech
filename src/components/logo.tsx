@@ -18,6 +18,8 @@ export function Logo({ className }: { className?: string }) {
       <img
         src="/logo-unlink-dark.svg"
         alt="Unlink Technologies"
+        width={682}
+        height={100}
         className={cn("w-auto dark:hidden", className)}
       />
       {/* dark theme → light-tagline logo (legible on the dark surface) */}
@@ -25,6 +27,8 @@ export function Logo({ className }: { className?: string }) {
       <img
         src="/logo-unlink-light.svg"
         alt="Unlink Technologies"
+        width={682}
+        height={100}
         className={cn("hidden w-auto dark:block", className)}
       />
     </Link>
