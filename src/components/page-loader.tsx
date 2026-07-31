@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { ParticleField } from "@/components/particle-field";
 import { cn } from "@/lib/utils";
 
 /**
@@ -60,6 +61,11 @@ export function PageLoader() {
         fading && "pointer-events-none opacity-0",
       )}
     >
+      {/* drifting dot field behind everything */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
+        <ParticleField />
+      </div>
+
       {/* soft brand glow */}
       <div className="pointer-events-none absolute h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(99,102,241,0.16),transparent_70%)] blur-2xl dark:bg-[radial-gradient(circle,rgba(129,140,248,0.15),transparent_70%)]" />
 

@@ -4,8 +4,6 @@ import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ThemeProvider } from "@/components/theme-provider";
-import { SkinProvider, skinNoFlashScript } from "@/components/skin-provider";
-import { SkinSwitcher } from "@/components/skin-switcher";
 import { FaviconSwitcher } from "@/components/favicon-switcher";
 import { PageLoader } from "@/components/page-loader";
 
@@ -45,11 +43,6 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <head>
-        {/* Applies the saved skin during HTML parsing, so a reload in
-            glassmorphism never flashes the neumorphic design first. */}
-        <script dangerouslySetInnerHTML={{ __html: skinNoFlashScript }} />
-      </head>
       <body className="min-h-full flex flex-col">
         <ThemeProvider
           attribute="class"
@@ -57,14 +50,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SkinProvider>
-            <PageLoader />
-            <FaviconSwitcher />
-            <SiteHeader />
-            <main className="flex flex-1 flex-col">{children}</main>
-            <SiteFooter />
-            <SkinSwitcher />
-          </SkinProvider>
+          <PageLoader />
+          <FaviconSwitcher />
+          <SiteHeader />
+          <main className="flex flex-1 flex-col">{children}</main>
+          <SiteFooter />
         </ThemeProvider>
       </body>
     </html>

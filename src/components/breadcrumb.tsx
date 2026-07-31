@@ -68,10 +68,7 @@ export function Breadcrumb({ className }: { className?: string }) {
         <Fragment key={c.href}>
           <ChevronRight className="h-3.5 w-3.5 text-muted-foreground/60" />
           {c.isLast ? (
-            <span
-              aria-current="page"
-              className="font-medium text-indigo-600 dark:text-indigo-400"
-            >
+            <span aria-current="page" className="shine-text font-medium">
               {c.label}
             </span>
           ) : (

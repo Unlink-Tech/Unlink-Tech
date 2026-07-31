@@ -31,7 +31,7 @@ const inset =
 const insetSm =
   "shadow-[inset_4px_4px_8px_var(--neu-dark),inset_-4px_-4px_8px_var(--neu-light)]";
 const gradientText =
-  "bg-gradient-to-br from-indigo-500 to-violet-600 bg-clip-text text-transparent dark:from-indigo-400 dark:to-violet-400";
+  "shine-text";
 
 /* ---------------- data ---------------- */
 

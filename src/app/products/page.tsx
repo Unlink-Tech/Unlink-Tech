@@ -74,7 +74,7 @@ function ProductCard({ product }: { product: Product }) {
       </span>
 
       <h2 className="mt-6 text-2xl font-bold tracking-tight sm:text-3xl">
-        <span className="bg-gradient-to-br from-indigo-500 to-violet-600 bg-clip-text text-transparent dark:from-indigo-400 dark:to-violet-400">
+        <span className="shine-text">
           {name}
         </span>
       </h2>

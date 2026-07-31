@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { HeroBackground } from "@/components/hero-background";
 import { Breadcrumb } from "@/components/breadcrumb";
+import { shineFocusWord } from "@/lib/shine";
 
 /**
  * Reusable inner-page header — a dynamic breadcrumb, eyebrow, title and
@@ -31,7 +32,7 @@ export function PageHero({
           </p>
         )}
         <h1 className="mx-auto mt-3 max-w-3xl text-3xl font-bold leading-tight tracking-tight text-balance text-foreground sm:text-5xl">
-          {title}
+          {shineFocusWord(title)}
         </h1>
         {subtitle && (
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-balance text-muted-foreground sm:text-lg">

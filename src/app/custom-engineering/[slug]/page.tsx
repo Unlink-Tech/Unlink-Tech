@@ -34,7 +34,7 @@ export async function generateMetadata({
 }
 
 const gradientText =
-  "bg-gradient-to-br from-indigo-500 to-violet-600 bg-clip-text text-transparent dark:from-indigo-400 dark:to-violet-400";
+  "shine-text";
 
 export default async function ServiceDetailPage({
   params,

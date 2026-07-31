@@ -23,7 +23,7 @@ function Em({ children }: { children: ReactNode }) {
 /** Gradient-accented product / key names. */
 function Grad({ children }: { children: ReactNode }) {
   return (
-    <span className="bg-gradient-to-br from-indigo-500 to-violet-600 bg-clip-text font-semibold text-transparent dark:from-indigo-400 dark:to-violet-400">
+    <span className="shine-text font-semibold">
       {children}
     </span>
   );
@@ -51,7 +51,7 @@ function StatementCard({
         {eyebrow}
       </p>
       <h2 className="mt-2 text-2xl font-bold tracking-tight">
-        <span className="bg-gradient-to-br from-indigo-500 to-violet-600 bg-clip-text text-transparent dark:from-indigo-400 dark:to-violet-400">
+        <span className="shine-text">
           {heading}
         </span>
       </h2>

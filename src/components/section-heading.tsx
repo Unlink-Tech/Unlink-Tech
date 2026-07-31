@@ -1,4 +1,5 @@
 import type { ElementType, ReactNode } from "react";
+import { shineFocusWord } from "@/lib/shine";
 import { cn } from "@/lib/utils";
 
 /**
@@ -31,7 +32,7 @@ export function SectionHeading({
           size === "lg" ? "text-4xl sm:text-5xl" : "text-3xl sm:text-4xl",
         )}
       >
-        {title}
+        {shineFocusWord(title)}
       </Tag>
       {subtitle && (
         <p className="mt-5 text-lg leading-relaxed text-muted-foreground">

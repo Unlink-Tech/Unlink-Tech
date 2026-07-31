@@ -101,7 +101,7 @@ function BentoCard({ service }: { service: Service }) {
             feature ? "text-2xl sm:text-3xl" : "text-xl",
           )}
         >
-          <span className="bg-gradient-to-br from-indigo-500 to-violet-600 bg-clip-text text-transparent dark:from-indigo-400 dark:to-violet-400">
+          <span className="shine-text">
             {title}
           </span>
         </h3>
