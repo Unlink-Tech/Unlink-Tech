@@ -105,7 +105,7 @@ function ProofCard({ product }: { product: Product }) {
 
         {/* hero proof stat in an inset "readout" well */}
         <div className={`mt-7 rounded-2xl bg-background px-6 py-7 ${inset}`}>
-          <div className="bg-gradient-to-br from-indigo-500 to-violet-600 bg-clip-text text-4xl font-bold tracking-tight text-transparent tabular-nums dark:from-indigo-400 dark:to-violet-400">
+          <div className="shine-text text-4xl font-bold tracking-tight tabular-nums">
             {hero.value}
           </div>
           <div className="mt-1 text-sm text-muted-foreground">
@@ -161,7 +161,7 @@ export function ProductsShowcase() {
                       {product.category}
                     </p>
                     <h3 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
-                      <span className="bg-gradient-to-br from-indigo-500 to-violet-600 bg-clip-text text-transparent dark:from-indigo-400 dark:to-violet-400">
+                      <span className="shine-text">
                         {product.name}
                       </span>
                     </h3>

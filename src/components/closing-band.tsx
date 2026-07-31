@@ -42,7 +42,7 @@ export function ClosingBand() {
 
               <h2 className="mt-6 text-4xl font-bold leading-tight tracking-tight text-balance text-foreground sm:text-5xl">
                 Talk to the people who{" "}
-                <span className="bg-gradient-to-br from-indigo-500 to-violet-600 bg-clip-text text-transparent dark:from-indigo-400 dark:to-violet-400">
+                <span className="shine-text">
                   built it.
                 </span>
               </h2>

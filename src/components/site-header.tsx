@@ -133,7 +133,7 @@ export function SiteHeader() {
       className={cn(
         "sticky top-0 z-50 w-full border-b transition-colors duration-300",
         scrolled || mobileOpen
-          ? "border-border/60 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+          ? "border-border/60 bg-background"
           : "border-transparent bg-transparent",
       )}
     >

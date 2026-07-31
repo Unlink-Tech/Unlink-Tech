@@ -140,7 +140,7 @@ function ServiceCard({ service }: { service: Service }) {
             </span>
           </div>
           <h2 className="mt-5 text-2xl font-bold leading-snug tracking-tight sm:text-3xl">
-            <span className="bg-gradient-to-br from-indigo-500 to-violet-600 bg-clip-text text-transparent dark:from-indigo-400 dark:to-violet-400">
+            <span className="shine-text">
               {title}
             </span>
           </h2>

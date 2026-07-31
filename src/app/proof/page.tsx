@@ -188,7 +188,7 @@ function BriefCard({ brief }: { brief: Brief }) {
           <Icon className="h-6 w-6" />
         </span>
         <h3 className="text-xl font-bold tracking-tight sm:text-2xl">
-          <span className="bg-gradient-to-br from-indigo-500 to-violet-600 bg-clip-text text-transparent dark:from-indigo-400 dark:to-violet-400">
+          <span className="shine-text">
             {domain}
           </span>
         </h3>
@@ -260,7 +260,7 @@ export default function ProofPage() {
                   key={metric}
                   className={`rounded-2xl p-5 sm:p-6 ${raisedSm}`}
                 >
-                  <div className="bg-gradient-to-br from-indigo-500 to-violet-600 bg-clip-text text-2xl font-bold tracking-tight text-transparent tabular-nums sm:text-3xl dark:from-indigo-400 dark:to-violet-400">
+                  <div className="shine-text text-2xl font-bold tracking-tight tabular-nums sm:text-3xl">
                     {figure}
                   </div>
                   <div className="mt-1.5 text-xs leading-snug text-muted-foreground sm:text-sm">

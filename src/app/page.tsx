@@ -1,5 +1,5 @@
 import { Hero } from "@/components/hero";
-import { TrustStrip } from "@/components/trust-strip";
+// import { TrustStrip } from "@/components/trust-strip";
 import { WhatWeDo } from "@/components/what-we-do";
 import { ProductsShowcase } from "@/components/products-showcase";
 import { ServicesBento } from "@/components/services-bento";
@@ -10,7 +10,8 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <TrustStrip />
+      {/* Parked for now, to be brought back later. */}
+      {/* <TrustStrip /> */}
       <WhatWeDo />
       <ProductsShowcase />
       <ServicesBento />
