@@ -78,7 +78,7 @@ function Row({
   return (
     <div
       className={cn(
-        "flex h-9 items-center gap-2 rounded-lg px-3 font-mono text-[11px] whitespace-nowrap",
+        "flex h-11 items-center gap-2 rounded-lg px-2.5 font-mono text-[10px] leading-tight sm:h-9 sm:px-3 sm:text-[11px] sm:whitespace-nowrap",
         tone === "plain" && `bg-background text-muted-foreground ${insetXs}`,
         tone === "matched" &&
           "bg-indigo-500/10 text-indigo-600 dark:bg-indigo-400/10 dark:text-indigo-300",
@@ -89,6 +89,23 @@ function Row({
     >
       {children}
     </div>
+  );
+}
+
+/**
+ * One ledger entry: reference and amount on one line from sm up, stacked
+ * below it. `min-w-0` is what lets either half actually shrink; without it a
+ * flex item keeps min-width:auto and pushes the whole card wider than itself.
+ */
+function Cell({ reference, amount }: { reference: string; amount: string }) {
+  return (
+    <span className="flex min-w-0 flex-col sm:flex-row sm:items-center sm:gap-1">
+      <span className="min-w-0 truncate">{reference}</span>
+      <span aria-hidden className="hidden sm:inline">
+        ·
+      </span>
+      <span className="min-w-0 truncate tabular-nums">{amount}</span>
+    </span>
   );
 }
 
@@ -104,17 +121,26 @@ function Row({
    never matches keeps its dashes marching afterwards.
    ------------------------------------------------------------------------- */
 
-const BANK = [
-  "ACH 4471 · 12,480.00",
-  "WIRE 88 · 4,215.60",
-  "CARD 2210 · 986.40",
-  "ACH 4472 · 7,310.00",
+/**
+ * Split into reference and amount so a phone can stack them.
+ *
+ * Side by side these are ~20 monospace characters in a column that is only
+ * ~114px wide on a 393px screen, which truncates the amounts: exactly the
+ * figures a reconciliation readout exists to show. Two lines below sm keeps
+ * every figure at any width, instead of tuning font size against a column
+ * width that was always going to lose.
+ */
+const BANK: [string, string][] = [
+  ["ACH 4471", "12,480.00"],
+  ["WIRE 88", "4,215.60"],
+  ["CARD 2210", "986.40"],
+  ["ACH 4472", "7,310.00"],
 ];
-const LEDGER = [
-  "INV-2041 · 12,480.00",
-  "INV-2038 · 986.40",
-  "INV-2044 · 4,215.60",
-  "unmatched · 7,310.00",
+const LEDGER: [string, string][] = [
+  ["INV-2041", "12,480.00"],
+  ["INV-2038", "986.40"],
+  ["INV-2044", "4,215.60"],
+  ["unmatched", "7,310.00"],
 ];
 /** Which ledger row each bank row settles against; the last one has no pair. */
 const PAIRS = [0, 2, 1];
@@ -139,7 +165,7 @@ export function CimmetriVisual({ className }: VisualProps) {
           </span>
         }
       >
-        <div className="grid grid-cols-[1fr_44px_1fr] gap-x-2">
+        <div className="grid grid-cols-[minmax(0,1fr)_26px_minmax(0,1fr)] gap-x-1.5 sm:grid-cols-[minmax(0,1fr)_44px_minmax(0,1fr)] sm:gap-x-2">
           <div className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
             Bank statement
           </div>
@@ -149,9 +175,9 @@ export function CimmetriVisual({ className }: VisualProps) {
           </div>
 
           <div className="space-y-2">
-            {BANK.map((line, i) => (
+            {BANK.map(([ref, amt], i) => (
               <Row
-                key={line}
+                key={ref}
                 tone={i === 3 ? "exception" : "matched"}
                 className={cn(
                   enter,
@@ -160,7 +186,7 @@ export function CimmetriVisual({ className }: VisualProps) {
                     : "-translate-x-2 opacity-0",
                 )}
               >
-                <span className="truncate">{line}</span>
+                <Cell reference={ref} amount={amt} />
               </Row>
             ))}
           </div>
@@ -169,6 +195,10 @@ export function CimmetriVisual({ className }: VisualProps) {
           <svg
             viewBox={`0 0 44 ${PITCH * 4}`}
             className="h-full w-full overflow-visible"
+            // The rows are taller on a phone (two lines), so the curve has to
+            // stretch with them rather than scale uniformly and drift off the
+            // row centres.
+            preserveAspectRatio="none"
             aria-hidden
           >
             {PAIRS.map((to, from) => (
@@ -200,9 +230,9 @@ export function CimmetriVisual({ className }: VisualProps) {
           </svg>
 
           <div className="space-y-2">
-            {LEDGER.map((line, i) => (
+            {LEDGER.map(([ref, amt], i) => (
               <Row
-                key={line}
+                key={ref}
                 tone={i === 3 ? "exception" : "matched"}
                 className={cn(
                   enter,
@@ -211,7 +241,7 @@ export function CimmetriVisual({ className }: VisualProps) {
                     : "translate-x-2 opacity-0",
                 )}
               >
-                <span className="truncate">{line}</span>
+                <Cell reference={ref} amount={amt} />
               </Row>
             ))}
           </div>
@@ -311,7 +341,7 @@ export function EnclaveVisual({ className }: VisualProps) {
                 {s.n}
               </span>
               <FileText className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
-              <span className="truncate text-[11px] text-foreground/80">
+              <span className="min-w-0 truncate text-[11px] text-foreground/80">
                 {s.doc}
               </span>
               <span className="ml-auto shrink-0 font-mono text-[10px] text-muted-foreground">

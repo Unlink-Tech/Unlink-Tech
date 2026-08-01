@@ -245,7 +245,7 @@ export function HeroConsole() {
 
         <Link
           href={`/products/${current.slug}`}
-          className="group mt-4 inline-flex items-center gap-1.5 self-start text-[11px] font-semibold text-muted-foreground transition-colors hover:text-indigo-600 sm:text-xs dark:hover:text-indigo-400"
+          className="group mt-4 inline-flex min-h-6 items-center gap-1.5 self-start text-[11px] font-semibold text-muted-foreground transition-colors hover:text-indigo-600 sm:text-xs dark:hover:text-indigo-400"
         >
           Explore {current.name}
           <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />

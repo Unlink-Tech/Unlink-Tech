@@ -75,7 +75,7 @@ function LinkColumn({ title, links }: { title: string; links: FooterLink[] }) {
           <li key={l.label}>
             <Link
               href={l.href}
-              className="text-sm text-muted-foreground transition-colors hover:text-indigo-600 dark:hover:text-indigo-400"
+              className="inline-flex min-h-6 items-center text-sm text-muted-foreground transition-colors hover:text-indigo-600 dark:hover:text-indigo-400"
             >
               {l.label}
             </Link>
@@ -129,7 +129,7 @@ export function SiteFooter() {
               <li>
                 <a
                   href="mailto:hr@unlink-technologies.com"
-                  className="inline-flex items-center gap-2.5 transition-colors hover:text-foreground"
+                  className="inline-flex min-h-6 items-center gap-2.5 transition-colors hover:text-foreground"
                 >
                   <Mail className="h-4 w-4 text-indigo-500 dark:text-indigo-400" />
                   hr@unlink-technologies.com
@@ -138,7 +138,7 @@ export function SiteFooter() {
               <li>
                 <a
                   href="mailto:sales@unlink-technologies.com"
-                  className="inline-flex items-center gap-2.5 transition-colors hover:text-foreground"
+                  className="inline-flex min-h-6 items-center gap-2.5 transition-colors hover:text-foreground"
                 >
                   <Mail className="h-4 w-4 text-indigo-500 dark:text-indigo-400" />
                   sales@unlink-technologies.com
@@ -147,7 +147,7 @@ export function SiteFooter() {
               <li>
                 <a
                   href="tel:+919650583832"
-                  className="inline-flex items-center gap-2.5 transition-colors hover:text-foreground"
+                  className="inline-flex min-h-6 items-center gap-2.5 transition-colors hover:text-foreground"
                 >
                   <Phone className="h-4 w-4 text-indigo-500 dark:text-indigo-400" />
                   +91-9650583832

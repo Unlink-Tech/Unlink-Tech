@@ -81,7 +81,7 @@ export function Breadcrumb({ className }: { className?: string }) {
       <Link
         href="/"
         aria-label="Home"
-        className="text-muted-foreground transition-colors hover:text-foreground"
+        className="inline-flex min-h-6 items-center text-muted-foreground transition-colors hover:text-foreground"
       >
         <House className="h-4 w-4" />
       </Link>
@@ -95,7 +95,7 @@ export function Breadcrumb({ className }: { className?: string }) {
           ) : (
             <Link
               href={c.href}
-              className="text-muted-foreground transition-colors hover:text-foreground"
+              className="inline-flex min-h-6 items-center text-muted-foreground transition-colors hover:text-foreground"
             >
               {c.label}
             </Link>

@@ -165,7 +165,7 @@ function renderBlock(block: Block, i: number) {
           Email:{" "}
           <a
             href={`mailto:${block.email}`}
-            className="font-medium text-indigo-600 hover:underline dark:text-indigo-400"
+            className="inline-flex min-h-6 items-center font-medium text-indigo-600 hover:underline dark:text-indigo-400"
           >
             {block.email}
           </a>
@@ -174,7 +174,7 @@ function renderBlock(block: Block, i: number) {
           Phone:{" "}
           <a
             href={`tel:${block.phone.replace(/[^+\d]/g, "")}`}
-            className="font-medium text-indigo-600 hover:underline dark:text-indigo-400"
+            className="inline-flex min-h-6 items-center font-medium text-indigo-600 hover:underline dark:text-indigo-400"
           >
             {block.phone}
           </a>

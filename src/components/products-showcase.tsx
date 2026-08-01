@@ -160,7 +160,16 @@ export function ProductsShowcase({
                           </div>
                         </div>
 
-                        <ul className="min-w-[15rem] flex-1 space-y-2.5">
+                        {/*
+                          The 15rem floor only applies from sm up. On a phone
+                          it set a min-content width of ~412px on this column,
+                          which is wider than the card itself: the grid column
+                          grew to fit it and the card's overflow-hidden then
+                          clipped the headings, the copy, and the right-hand
+                          side of the visual. Below sm the list simply takes
+                          the full width and wraps under the figure.
+                        */}
+                        <ul className="min-w-0 flex-1 space-y-2.5 sm:min-w-[15rem]">
                           {product.points.map((p) => (
                             <li
                               key={p}

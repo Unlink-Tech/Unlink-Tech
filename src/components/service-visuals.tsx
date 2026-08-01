@@ -359,7 +359,7 @@ export function WorkflowVisual({ className }: VisualProps) {
                 <span className="text-[11px] font-medium text-foreground/85">
                   {t.step}
                 </span>
-                <span className="truncate font-mono text-[10px] text-muted-foreground">
+                <span className="min-w-0 truncate font-mono text-[10px] text-muted-foreground">
                   {t.who}
                 </span>
                 <span className="ml-auto shrink-0 font-mono text-[10px] tabular-nums text-muted-foreground">
@@ -472,7 +472,7 @@ export function ComplianceVisual({ className }: VisualProps) {
                 <span className="w-16 shrink-0 font-mono text-[10px] text-muted-foreground">
                   {c.id}
                 </span>
-                <span className="truncate text-[11px] text-foreground/80">
+                <span className="min-w-0 truncate text-[11px] text-foreground/80">
                   {c.name}
                 </span>
                 <span className="ml-auto shrink-0">
@@ -529,7 +529,7 @@ export function MobileVisual({ className }: VisualProps) {
               <div className="text-base font-bold text-white tabular-nums">
                 ₹1,240
               </div>
-              <div className="mt-0.5 text-[8px] text-white/80">Tap or scan</div>
+              <div className="mt-0.5 text-[9px] text-white/80">Tap or scan</div>
             </div>
             <div className="mt-3 flex justify-center gap-2.5 text-muted-foreground">
               <QrCode className="h-4 w-4" />

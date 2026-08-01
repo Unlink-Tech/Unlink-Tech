@@ -188,7 +188,7 @@ export function ServicesShowcase({
 
                       <Link
                         href={`/custom-engineering/${slug}`}
-                        className="group/link mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring dark:text-indigo-400"
+                        className="group/link mt-6 inline-flex min-h-6 items-center gap-1.5 text-sm font-medium text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring dark:text-indigo-400"
                       >
                         Explore this service
                         <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
