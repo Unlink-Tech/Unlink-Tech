@@ -4,6 +4,7 @@ import { Fragment } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronRight, House } from "lucide-react";
+import { absoluteUrl } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 /** Nice labels for known slugs; anything else is title-cased from the slug. */
@@ -49,6 +50,26 @@ export function Breadcrumb({ className }: { className?: string }) {
     isLast: i === segments.length - 1,
   }));
 
+  /**
+   * The same trail as BreadcrumbList structured data, so Google renders the
+   * path in a search result instead of a bare URL. Emitted here rather than
+   * per page because this component already derives the trail: any page that
+   * shows a breadcrumb gets the markup, and none can forget it.
+   */
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
+      ...crumbs.map((c, i) => ({
+        "@type": "ListItem",
+        position: i + 2,
+        name: c.label,
+        item: absoluteUrl(c.href),
+      })),
+    ],
+  };
+
   return (
     <nav
       aria-label="Breadcrumb"
@@ -81,6 +102,12 @@ export function Breadcrumb({ className }: { className?: string }) {
           )}
         </Fragment>
       ))}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbLd).replace(/</g, "\\u003c"),
+        }}
+      />
     </nav>
   );
 }

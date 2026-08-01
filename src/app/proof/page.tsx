@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import type { ReactNode } from "react";
 import {
   BrainCircuit,
@@ -13,16 +14,16 @@ import { AuroraCard } from "@/components/ui/aurora-card";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
+import { StatsLedger } from "@/components/stats-ledger";
 import { cn } from "@/lib/utils";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Proof",
   description:
     "5+ years of fintech-grade systems across payments, settlement, fraud, onboarding, compliance, and enterprise AI. Every claim carries a number; none requires a client name.",
-};
+  path: "/proof",
+});
 
-const raisedSm =
-  "shadow-[5px_5px_10px_var(--neu-dark),-5px_-5px_10px_var(--neu-light)]";
 const inset =
   "shadow-[inset_5px_5px_10px_var(--neu-dark),inset_-5px_-5px_10px_var(--neu-light)]";
 const insetSm =
@@ -31,25 +32,6 @@ const insetSm =
 function Em({ children }: { children: ReactNode }) {
   return <span className="font-medium text-foreground">{children}</span>;
 }
-
-/* ---- platform statistics ------------------------------------------------ */
-
-const stats: { figure: string; metric: string }[] = [
-  { figure: "5+", metric: "Years shipping regulated fintech systems" },
-  { figure: "99.99%", metric: "Payment gateway uptime SLA achieved" },
-  { figure: "10,000+ TPS", metric: "Peak transaction processing capacity" },
-  { figure: "40+", metric: "Currencies supported in production" },
-  { figure: "100%", metric: "Settlement reconciliation accuracy" },
-  { figure: "$50M+", metric: "Daily volume on settlement system" },
-  { figure: "98.7%", metric: "Fraud detection rate (production ML)" },
-  { figure: "−60%", metric: "False positives vs rule-based system" },
-  { figure: "<50ms", metric: "ML scoring latency in production" },
-  { figure: "40 → 4", metric: "Onboarding manual decisions per day" },
-  { figure: "−70%", metric: "Onboarding time" },
-  { figure: "−85%", metric: "MAS TRM findings post-engagement" },
-  { figure: "4.8★ / 1M+", metric: "Mobile platform rating / transactions" },
-  { figure: "−60%", metric: "Time-to-market vs in-house build" },
-];
 
 /* ---- capability briefs -------------------------------------------------- */
 
@@ -253,23 +235,7 @@ export default function ProofPage() {
               subtitle="Every claim carries a figure, and none requires a client name."
             />
           </Reveal>
-          <Reveal>
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-              {stats.map(({ figure, metric }) => (
-                <AuroraCard
-                  key={metric}
-                  className={`rounded-2xl p-5 sm:p-6 ${raisedSm}`}
-                >
-                  <div className="shine-text text-2xl font-bold tracking-tight tabular-nums sm:text-3xl">
-                    {figure}
-                  </div>
-                  <div className="mt-1.5 text-xs leading-snug text-muted-foreground sm:text-sm">
-                    {metric}
-                  </div>
-                </AuroraCard>
-              ))}
-            </div>
-          </Reveal>
+          <StatsLedger />
         </div>
       </section>
 

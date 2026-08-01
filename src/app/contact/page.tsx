@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import { BrainCircuit, Download, Phone, Scale } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { PageHero } from "@/components/page-hero";
 import { ContactForm } from "@/components/contact-form";
 import { Reveal } from "@/components/reveal";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Contact",
   description:
     "Talk to an engineer, not a sales rep. Tell us what you're building or where you're stuck, and we'll tell you honestly whether we're the right team.",
-};
+  path: "/contact",
+});
 
 const raisedSm =
   "shadow-[5px_5px_10px_var(--neu-dark),-5px_-5px_10px_var(--neu-light)]";

@@ -1,18 +1,30 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ParticleField } from "@/components/particle-field";
 import { cn } from "@/lib/utils";
 
 /**
- * Neumorphic splash loader shown on the initial page load / refresh — the app
- * icon sits on a raised core while an accent dot orbits a recessed track.
- * Fades out once the window has loaded (min ~0.7s so it doesn't flash), then
- * unmounts. Does not re-appear on client-side navigation (the layout persists).
+ * Splash loader shown on the initial page load / refresh.
+ *
+ * A payment clears a settlement rail, strikes the brand mark, and the curtain
+ * parts along the rail line to reveal the page. Same motif as the hero
+ * backdrop, so the first thing you see is the thing the hero keeps doing.
+ *
+ * Fades out once the window has loaded (min ~0.9s so the packet gets to clear
+ * rather than flashing), then unmounts. Does not re-appear on client-side
+ * navigation, since the layout persists.
  */
+
+/** How long the curtain takes to part; must match the transition below. */
+const PART_MS = 900;
+/** Floor, so the rail is never cut off mid-clear on a warm cache. */
+const MIN_MS = 900;
+/** Hard cap, so the loader can never get stuck if `load` never fires. */
+const MAX_MS = 3000;
+
 export function PageLoader() {
   const [gone, setGone] = useState(false);
-  const [fading, setFading] = useState(false);
+  const [parting, setParting] = useState(false);
 
   useEffect(() => {
     let dismissed = false;
@@ -22,8 +34,8 @@ export function PageLoader() {
     const maybeDismiss = () => {
       if (dismissed || !loaded || !minDone) return;
       dismissed = true;
-      setFading(true);
-      window.setTimeout(() => setGone(true), 550); // after fade transition
+      setParting(true);
+      window.setTimeout(() => setGone(true), PART_MS);
     };
 
     const onLoad = () => {
@@ -35,13 +47,12 @@ export function PageLoader() {
     const minTimer = window.setTimeout(() => {
       minDone = true;
       maybeDismiss();
-    }, 700);
-    // hard fallback so the loader can never get stuck
+    }, MIN_MS);
     const maxTimer = window.setTimeout(() => {
       loaded = true;
       minDone = true;
       maybeDismiss();
-    }, 3000);
+    }, MAX_MS);
 
     return () => {
       window.removeEventListener("load", onLoad);
@@ -52,43 +63,63 @@ export function PageLoader() {
 
   if (gone) return null;
 
+  /**
+   * Inline rather than arbitrary Tailwind classes: v4 composes `transform`
+   * from its own custom properties, so a `[transform:…]` utility can get
+   * flattened back to identity here.
+   */
+  const move: React.CSSProperties = {
+    transition: `transform ${PART_MS}ms cubic-bezier(0.65, 0, 0.35, 1)`,
+  };
+
   return (
     <div
       role="status"
       aria-label="Loading"
-      className={cn(
-        "fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background transition-opacity duration-500 ease-out",
-        fading && "pointer-events-none opacity-0",
-      )}
+      className="fixed inset-0 z-[100] overflow-hidden"
     >
-      {/* drifting dot field behind everything */}
-      <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <ParticleField />
+      {/* top half, carrying the rail on its lower edge */}
+      <div
+        className="absolute inset-x-0 top-0 h-1/2 bg-background motion-reduce:transition-none"
+        style={{ ...move, transform: `translateY(${parting ? "-100%" : "0"})` }}
+      >
+        <span
+          aria-hidden
+          className="absolute inset-x-0 bottom-0 h-px bg-[linear-gradient(90deg,transparent,rgb(var(--particle-rgb)/0.5),transparent)]"
+        />
       </div>
 
-      {/* soft brand glow */}
-      <div className="pointer-events-none absolute h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(99,102,241,0.16),transparent_70%)] blur-2xl dark:bg-[radial-gradient(circle,rgba(129,140,248,0.15),transparent_70%)]" />
+      {/* bottom half */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-1/2 bg-background motion-reduce:transition-none"
+        style={{ ...move, transform: `translateY(${parting ? "100%" : "0"})` }}
+      />
 
-      {/* orbit: app icon on a raised core, accent dot circling a recessed track */}
-      <div className="relative h-28 w-28">
-        {/* recessed track */}
-        <div className="absolute inset-0 rounded-full shadow-[inset_5px_5px_10px_var(--neu-dark),inset_-5px_-5px_10px_var(--neu-light)]" />
+      {/* the payment clearing the rail */}
+      <span
+        aria-hidden
+        className={cn(
+          "rail-clear absolute top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-[rgb(var(--particle-rgb))] shadow-[0_0_14px_rgb(var(--particle-rgb))] transition-opacity duration-300 motion-reduce:hidden",
+          parting && "opacity-0",
+        )}
+      />
 
-        {/* raised core holding the app icon */}
-        <div className="absolute left-1/2 top-1/2 grid h-[4.5rem] w-[4.5rem] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-background shadow-[6px_6px_12px_var(--neu-dark),-6px_-6px_12px_var(--neu-light)]">
+      {/* the mark on the seam, lifting away as the curtain parts */}
+      <div
+        className={cn(
+          "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-out motion-reduce:transition-none",
+          parting ? "scale-110 opacity-0" : "scale-100 opacity-100",
+        )}
+      >
+        <div className="grid h-[4.5rem] w-[4.5rem] place-items-center rounded-full bg-background shadow-[6px_6px_12px_var(--neu-dark),-6px_-6px_12px_var(--neu-light)]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/app-icon.svg"
-            alt="Unlink Technologies"
+            alt=""
             width={151}
             height={158}
             className="h-11 w-11 object-contain"
           />
-        </div>
-
-        {/* orbiting dot */}
-        <div className="absolute inset-0 animate-[spin_1.15s_linear_infinite] motion-reduce:animate-none">
-          <span className="absolute -top-1 left-1/2 -ml-[7px] h-3.5 w-3.5 rounded-full bg-gradient-to-br from-indigo-500 to-violet-500 shadow-[0_0_10px_rgba(99,102,241,0.55)] dark:from-indigo-400 dark:to-violet-400 dark:shadow-[0_0_10px_rgba(129,140,248,0.55)]" />
         </div>
       </div>
 

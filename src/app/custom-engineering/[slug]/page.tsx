@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import { ArrowRight } from "lucide-react";
 import { AuroraCard } from "@/components/ui/aurora-card";
 import { PageHero } from "@/components/page-hero";
@@ -30,7 +31,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const service = getService(slug);
   if (!service) return {};
-  return { title: service.name, description: service.tagline };
+  return pageMetadata({
+    title: service.name,
+    description: service.tagline,
+    path: `/custom-engineering/${slug}`,
+  });
 }
 
 const gradientText =

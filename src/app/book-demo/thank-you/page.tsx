@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/site";
 import Link from "next/link";
-import { ArrowRight, Check, Clock, Mail, ShieldCheck } from "lucide-react";
+import { ArrowRight, CalendarCheck, Check, Mail, MonitorPlay } from "lucide-react";
 import { PageHero } from "@/components/page-hero";
 import { Reveal } from "@/components/reveal";
 import { NeuButton } from "@/components/ui/neu-button";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Thank you",
+  title: "Demo requested",
   description:
-    "Thanks for reaching out to Unlink Technologies. An engineer will read your enquiry and reply personally, usually within one business day.",
-  path: "/contact/thank-you",
+    "Thanks for requesting a demo of Unlink Technologies. An engineer will be in touch with times, usually within one business day.",
+  path: "/book-demo/thank-you",
   noIndex: true,
 });
 
@@ -24,29 +24,29 @@ const next = [
     icon: Mail,
     title: "It's landed with the right people",
     description:
-      "Your enquiry has been sent straight to our team at sales@unlink-technologies.com, with no ticket queue in between.",
+      "Your request went straight to our team at sales@unlink-technologies.com, with no ticket queue in between.",
   },
   {
-    icon: Clock,
-    title: "An engineer replies personally",
+    icon: CalendarCheck,
+    title: "Times, within one business day",
     description:
-      "Someone who actually builds these systems will read it and respond, usually within one business day.",
+      "We'll reply with a couple of 45-minute slots. Bring whoever needs to see it: ops, engineering, or compliance.",
   },
   {
-    icon: ShieldCheck,
-    title: "An honest first read",
+    icon: MonitorPlay,
+    title: "Built around what you asked",
     description:
-      "We'll tell you candidly whether we're the right fit and how we'd approach it. If we're not, we'll point you in a better direction.",
+      "We'll prepare the session against the workflow you described, so it opens on your problem rather than a scripted tour.",
   },
 ];
 
-export default function ThankYouPage() {
+export default function DemoThankYouPage() {
   return (
     <>
       <PageHero
-        eyebrow="Contact"
-        title="Thanks. Your message is on its way."
-        subtitle="We've received your enquiry and it's now with our engineering team. Here's what happens next."
+        eyebrow="Book a demo"
+        title="Thanks. Your demo request is in."
+        subtitle="We've received it and it's now with our engineering team. Here's what happens next."
       />
 
       <section className="px-4 pb-24 pt-16 sm:px-6">
@@ -58,12 +58,12 @@ export default function ThankYouPage() {
               <Check className="h-7 w-7" strokeWidth={2.5} />
             </span>
             <h2 className="mt-6 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-              We&apos;ll connect soon.
+              We&apos;ll be in touch with times.
             </h2>
             <p className="mx-auto mt-3 max-w-xl leading-relaxed text-muted-foreground">
-              Thank you for reaching out to Unlink Technologies. A real engineer
-              will read what you sent and get back to you, usually within one
-              business day.
+              Thank you for requesting a demo. An engineer will read what you
+              sent, prepare the session around it, and reply with slots, usually
+              within one business day.
             </p>
 
             <div className="mt-10 grid gap-4 text-left sm:grid-cols-3">
@@ -84,13 +84,13 @@ export default function ThankYouPage() {
 
             <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
               <NeuButton asChild variant="primary" size="lg" className="group">
-                <Link href="/">
-                  Back to home
+                <Link href="/products">
+                  Explore the products
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </NeuButton>
               <NeuButton asChild variant="neutral" size="lg">
-                <Link href="/proof">Explore our proof and capabilities</Link>
+                <Link href="/proof">See our proof and capabilities</Link>
               </NeuButton>
             </div>
           </div>

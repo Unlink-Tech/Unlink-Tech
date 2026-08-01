@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import { PageHero } from "@/components/page-hero";
 import { NeuButton } from "@/components/ui/neu-button";
 import { LinkedInIcon } from "@/components/brand-icons";
 import { InsightsList } from "@/components/insights-list";
 import { Reveal } from "@/components/reveal";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Insights",
   description:
     "Field notes from production: deep dives on payments, reconciliation, fraud ML, compliance, and governed AI, written by the engineers who shipped the systems.",
-};
+  path: "/insights",
+});
 
 const LINKEDIN_URL =
   "https://www.linkedin.com/company/unlink-technologies-private-limited";

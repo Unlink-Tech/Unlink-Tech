@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import {
   ArrowRight,
   ClipboardCheck,
@@ -20,11 +21,12 @@ import { SectionHeading } from "@/components/section-heading";
 import { StatTile } from "@/components/stat-tile";
 import { Reveal } from "@/components/reveal";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Merchant Onboarding",
   description:
     "Onboard merchants in hours, not weeks: automated KYC/KYB, risk scoring, and tiered approval workflows with a full audit trail on every decision.",
-};
+  path: "/products/merchant-onboarding",
+});
 
 const raised =
   "shadow-[8px_8px_16px_var(--neu-dark),-8px_-8px_16px_var(--neu-light)]";

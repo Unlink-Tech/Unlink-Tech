@@ -14,7 +14,13 @@ type NavItem = {
   label: string;
   href: string;
   children?: NavChild[];
+  /** Footer link into the section index. Omit for groupings with no index page. */
   viewAll?: string;
+  /**
+   * Extra routes that should light this item up. Company, for instance, has no
+   * page of its own — it is active whenever you are on one of its children.
+   */
+  matches?: string[];
 };
 
 const products: NavChild[] = [
@@ -68,6 +74,19 @@ const services: NavChild[] = [
   },
 ];
 
+const company: NavChild[] = [
+  {
+    label: "About us",
+    href: "/about",
+    desc: "Our company overview",
+  },
+  {
+    label: "Contact",
+    href: "/contact",
+    desc: "Get in touch with our team",
+  },
+];
+
 const navItems: NavItem[] = [
   { label: "Home", href: "/" },
   {
@@ -83,8 +102,14 @@ const navItems: NavItem[] = [
     viewAll: "View all services →",
   },
   { label: "Proof", href: "/proof" },
-  { label: "About", href: "/about" },
   { label: "Insights", href: "/insights" },
+  {
+    // No index page of its own; the trigger just opens the group.
+    label: "Company",
+    href: "/about",
+    children: company,
+    matches: ["/about", "/contact"],
+  },
 ];
 
 export function SiteHeader() {
@@ -99,6 +124,11 @@ export function SiteHeader() {
   // A nav item is active when we're on its route (or a nested route under it).
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
+  /** Same, widened to a grouping's extra routes. */
+  const isItemActive = (item: NavItem) =>
+    item.matches
+      ? item.matches.some((href) => pathname.startsWith(href))
+      : isActive(item.href);
   // A dropdown child is current when it's exactly the page we're on.
   const isCurrent = (href: string) => pathname === href;
 
@@ -148,7 +178,7 @@ export function SiteHeader() {
                 <NeuButton
                   variant="ghost"
                   size="sm"
-                  active={isActive(item.href)}
+                  active={isItemActive(item)}
                   onClick={() =>
                     setOpenMenu((m) => (m === item.label ? null : item.label))
                   }
@@ -191,13 +221,15 @@ export function SiteHeader() {
                         </span>
                       </Link>
                     ))}
-                    <Link
-                      href={item.href}
-                      onClick={() => setOpenMenu(null)}
-                      className="mt-1 block rounded-lg px-3 py-2 text-sm font-medium text-primary hover:bg-accent"
-                    >
-                      {item.viewAll}
-                    </Link>
+                    {item.viewAll && (
+                      <Link
+                        href={item.href}
+                        onClick={() => setOpenMenu(null)}
+                        className="mt-1 block rounded-lg px-3 py-2 text-sm font-medium text-primary hover:bg-accent"
+                      >
+                        {item.viewAll}
+                      </Link>
+                    )}
                   </div>
                 )}
               </div>
@@ -218,8 +250,13 @@ export function SiteHeader() {
 
         <div className="hidden items-center gap-2 lg:flex">
           <ThemeToggle />
-          <NeuButton asChild variant="primary" size="sm" active={isActive("/contact")}>
-            <Link href="/contact">Contact</Link>
+          <NeuButton
+            asChild
+            variant="primary"
+            size="sm"
+            active={isActive("/book-demo")}
+          >
+            <Link href="/book-demo">Book a Demo</Link>
           </NeuButton>
         </div>
 
@@ -248,7 +285,7 @@ export function SiteHeader() {
                   <NeuButton
                     variant="ghost"
                     size="md"
-                    active={isActive(item.href)}
+                    active={isItemActive(item)}
                     onClick={() =>
                       setMobileMenu((m) =>
                         m === item.label ? null : item.label,
@@ -283,13 +320,15 @@ export function SiteHeader() {
                           {child.label}
                         </Link>
                       ))}
-                      <Link
-                        href={item.href}
-                        onClick={() => setMobileOpen(false)}
-                        className="rounded-md px-3 py-2 text-sm font-medium text-primary hover:bg-accent"
-                      >
-                        {item.viewAll}
-                      </Link>
+                      {item.viewAll && (
+                        <Link
+                          href={item.href}
+                          onClick={() => setMobileOpen(false)}
+                          className="rounded-md px-3 py-2 text-sm font-medium text-primary hover:bg-accent"
+                        >
+                          {item.viewAll}
+                        </Link>
+                      )}
                     </div>
                   )}
                 </div>
@@ -312,11 +351,11 @@ export function SiteHeader() {
               asChild
               variant="primary"
               size="md"
-              active={isActive("/contact")}
+              active={isActive("/book-demo")}
               className="mt-2 w-full"
             >
-              <Link href="/contact" onClick={() => setMobileOpen(false)}>
-                Contact
+              <Link href="/book-demo" onClick={() => setMobileOpen(false)}>
+                Book demo
               </Link>
             </NeuButton>
           </nav>

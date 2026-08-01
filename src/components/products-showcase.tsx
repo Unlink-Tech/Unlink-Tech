@@ -1,192 +1,208 @@
 import Link from "next/link";
-import {
-  ArrowRight,
-  BrainCircuit,
-  Check,
-  CreditCard,
-  Scale,
-  UserRoundCheck,
-} from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { NeuButton } from "@/components/ui/neu-button";
-import { AuroraCard } from "@/components/ui/aurora-card";
 import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
+import { showcaseProducts } from "@/lib/products";
+import { productVisuals } from "@/components/product-visuals-map";
+import { cn } from "@/lib/utils";
 
-/** Neumorphic inset helpers for the readout well, icon niche and check dots. */
-const inset =
-  "shadow-[inset_5px_5px_10px_var(--neu-dark),inset_-5px_-5px_10px_var(--neu-light)]";
-const insetSm =
-  "shadow-[inset_4px_4px_8px_var(--neu-dark),inset_-4px_-4px_8px_var(--neu-light)]";
+/**
+ * Products showcase — immersive cards, dealt as a stack.
+ *
+ * The look is the immersive band: a chapter number, a brand wash behind the
+ * visual, and the product name set large. The behaviour is the stacked deck:
+ * each card pins as you scroll and comes to rest a little below the last, so
+ * the four build up on screen instead of scrolling away.
+ *
+ * Two rules keep the stack honest, and both are load-bearing:
+ *
+ *   1. Every card is the same height (MIN_HEIGHT) and every visual sits in the
+ *      same fixed-height, centred slot, so a card holds its size and its visual
+ *      holds its place as the next one pins over it.
+ *   2. Nothing bleeds outside a card. The tilted, overhanging visual that suits
+ *      a single full-bleed band reads as broken overlap once cards stack.
+ *
+ * Rows alternate: odd cards put the visual on the right, even cards on the
+ * left. Because sides swap via `order`, the grid template has to swap with them
+ * — otherwise the visual lands in the narrower column on every other row.
+ *
+ * Pure CSS `position: sticky` — no scroll listeners and nothing to measure.
+ * No ancestor of the sticky wrapper may set `overflow: hidden`, or the pinning
+ * silently stops working; the card itself may, and does.
+ */
 
-type Product = {
-  slug: string;
-  name: string;
-  category: string;
-  icon: LucideIcon;
-  description: string;
-  hero: { value: string; caption: string };
-  points: string[];
-};
+const insetXs =
+  "shadow-[inset_3px_3px_6px_var(--neu-dark),inset_-3px_-3px_6px_var(--neu-light)]";
+/**
+ * Where the first card pins (clearing the 64px header), and the step each later
+ * card rests below it. Kept tight so a pinned card's bottom still clears a
+ * short laptop window: TOP_BASE + card height has to fit the viewport, or the
+ * card's own footer becomes unreachable while it is stuck.
+ */
+const TOP_BASE = 80;
+const TOP_STEP = 16;
+/** Uniform card height, so all four keep the same presence in the stack. */
+const MIN_HEIGHT = "lg:min-h-[37rem]";
+/** Uniform visual slot, so all four line up whatever their natural height. */
+const VISUAL_SLOT = "lg:h-[27rem]";
 
-const products: Product[] = [
-  {
-    slug: "cimmetri",
-    name: "Cimmetri",
-    category: "Reconciliation & financial operations",
-    icon: Scale,
-    description:
-      "Close the books faster and hand auditors a ready package, not a month-end scramble.",
-    hero: { value: "15 → 3 days", caption: "Month-end close" },
-    points: [
-      "Audit package in 48 hours",
-      "~70% of manual effort eliminated",
-    ],
-  },
-  {
-    slug: "enclave",
-    name: "Enclave",
-    category: "Private, governed enterprise AI",
-    icon: BrainCircuit,
-    description:
-      "Enterprise AI that answers in seconds and cites every claim, running entirely inside your boundary.",
-    hero: { value: "Seconds", caption: "vs 20-minute manual searches" },
-    points: [
-      "Every claim cited to its source",
-      "Deploy in your VPC, on-prem, or air-gapped",
-    ],
-  },
-  {
-    slug: "payment-gateway",
-    name: "Payment Gateway",
-    category: "High-throughput acceptance & routing",
-    icon: CreditCard,
-    description:
-      "Accept at scale with intelligent routing, broad currency support, and fast settlement.",
-    hero: { value: "10,000+ TPS", caption: "Peak throughput" },
-    points: [
-      "99.99% uptime in production",
-      "40+ currencies · T+0 settlement where supported",
-    ],
-  },
-  {
-    slug: "merchant-onboarding",
-    name: "Merchant Onboarding",
-    category: "Automated KYC/KYB & risk scoring",
-    icon: UserRoundCheck,
-    description:
-      "Automated KYC/KYB and risk scoring that turns weeks of onboarding into the same day.",
-    hero: { value: "−70%", caption: "Onboarding time" },
-    points: [
-      "Manual compliance decisions cut from 40/day to 4",
-      "Approved merchants transacting the same day",
-    ],
-  },
-];
+/**
+ * @param showHeading  false on /products, where the page hero already carries
+ *                     the eyebrow and title and a second one would repeat it.
+ */
+export function ProductsShowcase({
+  showHeading = true,
+}: {
+  showHeading?: boolean;
+}) {
+  // With the section heading hidden (on /products, where the page hero already
+  // carries it) the cards become the page's top-level sections, so their
+  // titles have to step up to h2 or the document jumps h1 → h3.
+  const CardHeading = showHeading ? "h3" : "h2";
 
-function ProofCard({ product }: { product: Product }) {
-  const { icon: Icon, name, category, hero, points } = product;
   return (
-    <div className="relative">
-      {/* soft brand glow behind the card */}
-      <div className="pointer-events-none absolute -inset-6 -z-10 rounded-[2.5rem] bg-[radial-gradient(60%_60%_at_50%_40%,rgba(99,102,241,0.18),transparent_70%)] blur-2xl dark:bg-[radial-gradient(60%_60%_at_50%_40%,rgba(129,140,248,0.16),transparent_70%)]" />
-
-      <AuroraCard>
-        <div className="flex items-center justify-between">
-          <span
-            className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-background text-indigo-500 transition-transform duration-300 group-hover:scale-110 dark:text-indigo-400 ${insetSm}`}
-          >
-            <Icon className="h-6 w-6" />
-          </span>
-          <span className="text-right text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
-            {category}
-          </span>
-        </div>
-
-        {/* hero proof stat in an inset "readout" well */}
-        <div className={`mt-7 rounded-2xl bg-background px-6 py-7 ${inset}`}>
-          <div className="shine-text text-4xl font-bold tracking-tight tabular-nums">
-            {hero.value}
-          </div>
-          <div className="mt-1 text-sm text-muted-foreground">
-            {hero.caption}
-          </div>
-        </div>
-
-        {/* supporting proof points */}
-        <ul className="mt-6 space-y-3">
-          {points.map((p) => (
-            <li key={p} className="flex items-start gap-3 text-sm text-foreground/90">
-              <span
-                className={`mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-background text-indigo-500 dark:text-indigo-400 ${insetSm}`}
-              >
-                <Check className="h-3 w-3" strokeWidth={3} />
-              </span>
-              {p}
-            </li>
-          ))}
-        </ul>
-
-        <div className="mt-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-          {name}
-        </div>
-      </AuroraCard>
-    </div>
-  );
-}
-
-export function ProductsShowcase() {
-  return (
-    <section id="products" className="border-t border-border/60 bg-background">
+    <section
+      id="products"
+      className={cn(
+        "bg-background",
+        showHeading && "border-t border-border/60",
+      )}
+    >
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
-        {/* section header */}
-        <Reveal className="mb-20">
-          <SectionHeading
-            eyebrow="Products"
-            title="Four products. Proven in production."
-            subtitle="Infrastructure you deploy instead of building. Each one is measured on a number that matters."
-          />
-        </Reveal>
+        {showHeading && (
+          <Reveal className="mb-16">
+            <SectionHeading
+              eyebrow="Products"
+              title="Four products. Proven in production."
+              subtitle="Infrastructure you deploy instead of building. Each one is measured on a number that matters."
+            />
+          </Reveal>
+        )}
 
-        {/* alternating product rows */}
-        <div className="space-y-20 lg:space-y-28">
-          {products.map((product, i) => {
+        <div className="space-y-8">
+          {showcaseProducts.map((product, i) => {
+            const Visual = productVisuals[product.slug];
+            // Even-numbered cards mirror: visual left, copy right.
             const reversed = i % 2 === 1;
             return (
-              <Reveal key={product.slug}>
-                <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-                  {/* copy */}
-                  <div className={reversed ? "lg:order-2" : "lg:order-1"}>
-                    <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
-                      {product.category}
-                    </p>
-                    <h3 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
-                      <span className="shine-text">
-                        {product.name}
-                      </span>
-                    </h3>
-                    <p className="mt-5 max-w-md text-lg leading-relaxed text-muted-foreground">
-                      {product.description}
-                    </p>
-                    <NeuButton
-                      asChild
-                      variant="neutral"
-                      size="md"
-                      className="group mt-8"
-                    >
-                      <Link href={`/products/${product.slug}`}>
-                        Explore {product.name}
-                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                      </Link>
-                    </NeuButton>
-                  </div>
+              <div
+                key={product.slug}
+                // Desktop only: on a phone the card is taller than the viewport,
+                // and a pinned element you cannot scroll past hides its own
+                // bottom. There it stays a plain, scrolling stack of cards.
+                className="lg:sticky"
+                style={{ top: `${TOP_BASE + i * TOP_STEP}px` }}
+              >
+                <article
+                  className={`relative overflow-hidden rounded-[2rem] bg-background p-7 sm:p-10 lg:p-12 ${MIN_HEIGHT}`}
+                >
+                  {/* brand wash, following whichever side the visual is on */}
+                  <div
+                    aria-hidden
+                    className={cn(
+                      "pointer-events-none absolute inset-y-0 hidden w-[60%] bg-[radial-gradient(closest-side,rgba(99,102,241,0.14),transparent)] blur-2xl dark:bg-[radial-gradient(closest-side,rgba(129,140,248,0.15),transparent)] lg:block",
+                      reversed ? "left-[-10%]" : "right-[-10%]",
+                    )}
+                  />
 
-                  {/* proof card */}
-                  <div className={reversed ? "lg:order-1" : "lg:order-2"}>
-                    <ProofCard product={product} />
+                  <div
+                    className={cn(
+                      "relative grid h-full items-center gap-10 lg:gap-14",
+                      // The visual always takes the wider column, so the ratio
+                      // flips along with the sides.
+                      reversed
+                        ? "lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)]"
+                        : "lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]",
+                    )}
+                  >
+                    {/* ---- copy. Always first on mobile, whichever side it
+                         takes on desktop. ---- */}
+                    <div className={reversed ? "lg:order-2" : "lg:order-1"}>
+                      {/*
+                        The ghost index is deliberately at the edge of
+                        legibility. It is a position marker, not content: the
+                        screen-reader label below carries the real information,
+                        and the numeral itself is drawn as CSS content so it is
+                        treated as the decoration it is. See .ghost-index.
+                      */}
+                      <p className="sr-only">
+                        Product {i + 1} of {showcaseProducts.length}
+                      </p>
+                      <div aria-hidden className="flex items-baseline gap-3">
+                        <span
+                          data-index={String(i + 1).padStart(2, "0")}
+                          className="ghost-index font-mono text-5xl font-bold leading-none text-foreground/[0.08] dark:text-foreground/[0.11]"
+                        />
+                        <span className="font-mono text-xs text-muted-foreground">
+                          of {String(showcaseProducts.length).padStart(2, "0")}
+                        </span>
+                      </div>
+
+                      <p className="mt-5 text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+                        {product.category}
+                      </p>
+                      <CardHeading className="mt-2.5 text-4xl font-bold tracking-tight sm:text-5xl">
+                        <span className="shine-text">{product.name}</span>
+                      </CardHeading>
+                      <p className="mt-4 max-w-md text-base leading-relaxed text-muted-foreground lg:text-lg">
+                        {product.description}
+                      </p>
+
+                      {/* the measured number, then the proof points beside it */}
+                      <div className="mt-8 flex flex-wrap items-start gap-x-8 gap-y-5">
+                        <div className="shrink-0">
+                          <div className="shine-text text-3xl font-bold tracking-tight tabular-nums">
+                            {product.hero.value}
+                          </div>
+                          <div className="mt-1 text-xs text-muted-foreground">
+                            {product.hero.caption}
+                          </div>
+                        </div>
+
+                        <ul className="min-w-[15rem] flex-1 space-y-2.5">
+                          {product.points.map((p) => (
+                            <li
+                              key={p}
+                              className="flex items-start gap-2.5 text-sm text-foreground/90"
+                            >
+                              <span
+                                className={`mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-background text-indigo-500 dark:text-indigo-400 ${insetXs}`}
+                              >
+                                <Check className="h-3 w-3" strokeWidth={3} />
+                              </span>
+                              {p}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <NeuButton
+                        asChild
+                        variant="primary"
+                        size="md"
+                        className="group mt-9"
+                      >
+                        <Link href={`/products/${product.slug}`}>
+                          Explore {product.name}
+                          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                        </Link>
+                      </NeuButton>
+                    </div>
+
+                    {/* ---- visual, in a slot every card shares ---- */}
+                    <div
+                      className={cn(
+                        "flex items-center justify-center",
+                        VISUAL_SLOT,
+                        reversed ? "lg:order-1" : "lg:order-2",
+                      )}
+                    >
+                      <Visual className="w-full max-w-[34rem]" />
+                    </div>
                   </div>
-                </div>
-              </Reveal>
+                </article>
+              </div>
             );
           })}
         </div>

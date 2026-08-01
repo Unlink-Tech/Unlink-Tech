@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Check } from "lucide-react";
-import { ParticleField } from "@/components/particle-field";
+import { SettlementRails } from "@/components/settlement-rails";
 import { HeroConsole } from "@/components/hero-console";
 import { NeuButton } from "@/components/ui/neu-button";
 
@@ -15,11 +15,11 @@ const domains = ["Payments", "Reconciliation", "Onboarding", "Governed AI"];
 export function Hero() {
   return (
     <section className="relative flex flex-1 items-center overflow-hidden bg-background px-4 py-20 sm:px-6 lg:py-28">
-      {/* backdrop: soft brand washes with the cursor-reactive particle web on top */}
+      {/* backdrop: soft brand washes with the cursor-reactive settlement rails on top */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         <div className="absolute -left-[10%] -top-[20%] h-[70%] w-[60%] rounded-full bg-[radial-gradient(circle,rgba(99,102,241,0.11),transparent_65%)] blur-3xl dark:bg-[radial-gradient(circle,rgba(129,140,248,0.13),transparent_65%)]" />
         <div className="absolute -bottom-[25%] right-[-8%] h-[70%] w-[60%] rounded-full bg-[radial-gradient(circle,rgba(124,58,237,0.10),transparent_65%)] blur-3xl dark:bg-[radial-gradient(circle,rgba(167,139,250,0.12),transparent_65%)]" />
-        <ParticleField />
+        <SettlementRails />
       </div>
 
       <div className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-16 lg:grid-cols-2 lg:gap-12">
@@ -32,7 +32,7 @@ export function Hero() {
             Regulated-grade financial infrastructure
           </span>
 
-          <h1 className="mt-8 text-4xl font-bold leading-[1.08] tracking-tight text-balance text-slate-700 dark:text-slate-100 sm:text-5xl lg:text-[3.4rem]">
+          <h1 className="mt-8 text-4xl font-bold leading-[1.08] tracking-tight text-balance text-slate-700 dark:text-slate-100 sm:text-5xl lg:text-[3rem]">
             The <span className="shine-text">financial</span> infrastructure
             regulated businesses{" "}
             {/* Delayed so the two highlights gleam in reading order. */}

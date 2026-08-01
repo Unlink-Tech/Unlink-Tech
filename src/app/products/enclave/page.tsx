@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import {
   ArrowRight,
   Cloud,
@@ -19,11 +20,12 @@ import { SectionHeading } from "@/components/section-heading";
 import { StatTile } from "@/components/stat-tile";
 import { Reveal } from "@/components/reveal";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Enclave",
   description:
     "Enclave is a private, governed AI platform that unifies your documents, knowledge, and live databases behind one plain-English interface: every answer cited, every request governed, inside your boundary.",
-};
+  path: "/products/enclave",
+});
 
 const raised =
   "shadow-[8px_8px_16px_var(--neu-dark),-8px_-8px_16px_var(--neu-light)]";

@@ -105,7 +105,10 @@ export function SiteFooter() {
             <div className="mt-6 grid gap-6 sm:grid-cols-2">
               {offices.map((o) => (
                 <div key={o.country}>
-                  <h4 className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                  {/* h3, not h4: this is the first heading in the footer, and
+                      the nav column titles below are h3 too. An h4 here jumps
+                      the page straight from h2 to h4. */}
+                  <h3 className="flex items-center gap-2 text-sm font-semibold text-foreground">
                     <span aria-hidden className="text-base leading-none">
                       {o.flag}
                     </span>
@@ -113,7 +116,7 @@ export function SiteFooter() {
                     <span className="font-normal text-muted-foreground">
                       ({o.note})
                     </span>
-                  </h4>
+                  </h3>
                   <p className="mt-1.5 whitespace-pre-line text-sm leading-relaxed text-muted-foreground">
                     {o.address}
                   </p>
