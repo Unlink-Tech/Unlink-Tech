@@ -111,7 +111,7 @@ export function ServicesShowcase({
 
                   <div
                     className={cn(
-                      "relative grid h-full items-center gap-10 lg:gap-14",
+                      "relative grid h-full grid-cols-[minmax(0,1fr)] items-center gap-10 lg:gap-14",
                       // The visual always takes the wider column, so the ratio
                       // flips along with the sides.
                       reversed
