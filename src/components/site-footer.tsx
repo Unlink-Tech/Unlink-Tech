@@ -75,7 +75,7 @@ function LinkColumn({ title, links }: { title: string; links: FooterLink[] }) {
           <li key={l.label}>
             <Link
               href={l.href}
-              className="text-sm text-muted-foreground transition-colors hover:text-indigo-600 dark:hover:text-indigo-400"
+              className="inline-flex min-h-6 items-center text-sm text-muted-foreground transition-colors hover:text-indigo-600 dark:hover:text-indigo-400"
             >
               {l.label}
             </Link>
@@ -105,7 +105,10 @@ export function SiteFooter() {
             <div className="mt-6 grid gap-6 sm:grid-cols-2">
               {offices.map((o) => (
                 <div key={o.country}>
-                  <h4 className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                  {/* h3, not h4: this is the first heading in the footer, and
+                      the nav column titles below are h3 too. An h4 here jumps
+                      the page straight from h2 to h4. */}
+                  <h3 className="flex items-center gap-2 text-sm font-semibold text-foreground">
                     <span aria-hidden className="text-base leading-none">
                       {o.flag}
                     </span>
@@ -113,7 +116,7 @@ export function SiteFooter() {
                     <span className="font-normal text-muted-foreground">
                       ({o.note})
                     </span>
-                  </h4>
+                  </h3>
                   <p className="mt-1.5 whitespace-pre-line text-sm leading-relaxed text-muted-foreground">
                     {o.address}
                   </p>
@@ -126,7 +129,7 @@ export function SiteFooter() {
               <li>
                 <a
                   href="mailto:hr@unlink-technologies.com"
-                  className="inline-flex items-center gap-2.5 transition-colors hover:text-foreground"
+                  className="inline-flex min-h-6 items-center gap-2.5 transition-colors hover:text-foreground"
                 >
                   <Mail className="h-4 w-4 text-indigo-500 dark:text-indigo-400" />
                   hr@unlink-technologies.com
@@ -135,7 +138,7 @@ export function SiteFooter() {
               <li>
                 <a
                   href="mailto:sales@unlink-technologies.com"
-                  className="inline-flex items-center gap-2.5 transition-colors hover:text-foreground"
+                  className="inline-flex min-h-6 items-center gap-2.5 transition-colors hover:text-foreground"
                 >
                   <Mail className="h-4 w-4 text-indigo-500 dark:text-indigo-400" />
                   sales@unlink-technologies.com
@@ -144,7 +147,7 @@ export function SiteFooter() {
               <li>
                 <a
                   href="tel:+919650583832"
-                  className="inline-flex items-center gap-2.5 transition-colors hover:text-foreground"
+                  className="inline-flex min-h-6 items-center gap-2.5 transition-colors hover:text-foreground"
                 >
                   <Phone className="h-4 w-4 text-indigo-500 dark:text-indigo-400" />
                   +91-9650583832

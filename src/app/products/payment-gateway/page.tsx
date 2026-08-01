@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import {
   Activity,
   ArrowRight,
@@ -20,11 +21,12 @@ import { SectionHeading } from "@/components/section-heading";
 import { StatTile } from "@/components/stat-tile";
 import { Reveal } from "@/components/reveal";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Payment Gateway",
   description:
     "A payment gateway that survives 10× traffic and settles when it says it will: high-throughput acceptance, intelligent routing, and reliable settlement, engineered for production load.",
-};
+  path: "/products/payment-gateway",
+});
 
 const raised =
   "shadow-[8px_8px_16px_var(--neu-dark),-8px_-8px_16px_var(--neu-light)]";

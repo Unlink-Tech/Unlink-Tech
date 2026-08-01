@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import {
   ArrowRight,
   Download,
@@ -18,11 +19,12 @@ import { SectionHeading } from "@/components/section-heading";
 import { StatTile } from "@/components/stat-tile";
 import { Reveal } from "@/components/reveal";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Cimmetri",
   description:
     "Cimmetri is a cloud-native financial operations platform unifying reconciliation, settlement, exception resolution, and audit, closing your books in 3 days, not 15.",
-};
+  path: "/products/cimmetri",
+});
 
 const raised =
   "shadow-[8px_8px_16px_var(--neu-dark),-8px_-8px_16px_var(--neu-light)]";

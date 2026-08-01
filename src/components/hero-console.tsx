@@ -48,7 +48,8 @@ const PRODUCTS: Product[] = [
     icon: UserRoundCheck,
     metric: "−70%",
     caption: "Onboarding time",
-    spark: "M0,46 L26,42 L52,44 L78,30 L104,34 L130,20 L156,24 L182,10 L208,14 L234,6",
+    spark:
+      "M0,46 L26,42 L52,44 L78,30 L104,34 L130,20 L156,24 L182,10 L208,14 L234,6",
   },
   {
     slug: "payment-gateway",
@@ -56,7 +57,8 @@ const PRODUCTS: Product[] = [
     icon: CreditCard,
     metric: "10,000+",
     caption: "TPS at peak",
-    spark: "M0,50 L26,36 L52,40 L78,22 L104,28 L130,26 L156,14 L182,18 L208,8 L234,4",
+    spark:
+      "M0,50 L26,36 L52,40 L78,22 L104,28 L130,26 L156,14 L182,18 L208,8 L234,4",
   },
   {
     slug: "cimmetri",
@@ -64,7 +66,8 @@ const PRODUCTS: Product[] = [
     icon: Scale,
     metric: "15 → 3",
     caption: "Days to month-end close",
-    spark: "M0,40 L26,44 L52,30 L78,34 L104,18 L130,24 L156,12 L182,16 L208,10 L234,2",
+    spark:
+      "M0,40 L26,44 L52,30 L78,34 L104,18 L130,24 L156,12 L182,16 L208,10 L234,2",
   },
   {
     slug: "enclave",
@@ -72,7 +75,8 @@ const PRODUCTS: Product[] = [
     icon: BrainCircuit,
     metric: "100%",
     caption: "Claims cited to source",
-    spark: "M0,52 L26,44 L52,46 L78,32 L104,36 L130,22 L156,26 L182,12 L208,16 L234,8",
+    spark:
+      "M0,52 L26,44 L52,46 L78,32 L104,36 L130,22 L156,26 L182,12 L208,16 L234,8",
   },
 ];
 
@@ -192,8 +196,14 @@ export function HeroConsole() {
           </svg>
         </div>
 
-        {/* product selector */}
-        <ul
+        {/*
+          A plain <div>, not a <ul>. ARIA requires a tablist's children to be
+          tabs: wrapping each button in an <li> puts a listitem between them,
+          which breaks both aria-required-children and aria-required-parent,
+          and leaves the <li>s orphaned once role="tablist" overrides the list
+          semantics of the <ul>.
+        */}
+        <div
           role="tablist"
           aria-label="Products"
           className="mt-4 grid grid-cols-2 gap-2"
@@ -202,41 +212,40 @@ export function HeroConsole() {
             const Icon = p.icon;
             const on = i === active;
             return (
-              <li key={p.slug}>
-                <button
-                  type="button"
-                  role="tab"
-                  id={`console-tab-${p.slug}`}
-                  aria-selected={on}
-                  aria-controls={`console-panel-${p.slug}`}
-                  onClick={() => setActive(i)}
-                  className={`flex h-full w-full cursor-pointer items-center gap-2 rounded-xl bg-background px-2.5 py-2.5 text-left transition-all ${
-                    on ? insetSm : raisedSm
+              <button
+                key={p.slug}
+                type="button"
+                role="tab"
+                id={`console-tab-${p.slug}`}
+                aria-selected={on}
+                aria-controls={`console-panel-${p.slug}`}
+                onClick={() => setActive(i)}
+                className={`flex h-full w-full cursor-pointer items-center gap-2 rounded-xl bg-background px-2.5 py-2.5 text-left transition-all ${
+                  on ? insetSm : raisedSm
+                }`}
+              >
+                <Icon
+                  className={`h-4 w-4 shrink-0 ${
+                    on
+                      ? "text-indigo-500 dark:text-indigo-400"
+                      : "text-muted-foreground"
+                  }`}
+                />
+                <span
+                  className={`truncate text-[11px] font-semibold leading-tight sm:text-xs ${
+                    on ? "text-foreground" : "text-muted-foreground"
                   }`}
                 >
-                  <Icon
-                    className={`h-4 w-4 shrink-0 ${
-                      on
-                        ? "text-indigo-500 dark:text-indigo-400"
-                        : "text-muted-foreground"
-                    }`}
-                  />
-                  <span
-                    className={`truncate text-[11px] font-semibold leading-tight sm:text-xs ${
-                      on ? "text-foreground" : "text-muted-foreground"
-                    }`}
-                  >
-                    {p.name}
-                  </span>
-                </button>
-              </li>
+                  {p.name}
+                </span>
+              </button>
             );
           })}
-        </ul>
+        </div>
 
         <Link
           href={`/products/${current.slug}`}
-          className="group mt-4 inline-flex items-center gap-1.5 self-start text-[11px] font-semibold text-muted-foreground transition-colors hover:text-indigo-600 sm:text-xs dark:hover:text-indigo-400"
+          className="group mt-4 inline-flex min-h-6 items-center gap-1.5 self-start text-[11px] font-semibold text-muted-foreground transition-colors hover:text-indigo-600 sm:text-xs dark:hover:text-indigo-400"
         >
           Explore {current.name}
           <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />

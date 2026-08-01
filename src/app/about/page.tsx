@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import type { ReactNode } from "react";
 import { ShieldCheck, Sparkles } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -6,11 +7,12 @@ import { AuroraCard } from "@/components/ui/aurora-card";
 import { PageHero } from "@/components/page-hero";
 import { Reveal } from "@/components/reveal";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "About",
   description:
     "Unlink is a specialist fintech technology company. For 5+ years we have shipped payment infrastructure, AI risk systems, enterprise workflows, and regulatory compliance platforms across India, Southeast Asia, and the Middle East.",
-};
+  path: "/about",
+});
 
 const insetSm =
   "shadow-[inset_4px_4px_8px_var(--neu-dark),inset_-4px_-4px_8px_var(--neu-light)]";
