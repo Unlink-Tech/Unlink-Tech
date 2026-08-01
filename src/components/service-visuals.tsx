@@ -359,7 +359,7 @@ export function WorkflowVisual({ className }: VisualProps) {
                 <span className="text-[11px] font-medium text-foreground/85">
                   {t.step}
                 </span>
-                <span className="min-w-0 truncate font-mono text-[10px] text-muted-foreground">
+                <span className="min-w-0 font-mono text-[10px] leading-tight text-muted-foreground sm:truncate">
                   {t.who}
                 </span>
                 <span className="ml-auto shrink-0 font-mono text-[10px] tabular-nums text-muted-foreground">
@@ -472,7 +472,7 @@ export function ComplianceVisual({ className }: VisualProps) {
                 <span className="w-16 shrink-0 font-mono text-[10px] text-muted-foreground">
                   {c.id}
                 </span>
-                <span className="min-w-0 truncate text-[11px] text-foreground/80">
+                <span className="min-w-0 text-[11px] leading-tight text-foreground/80 sm:truncate">
                   {c.name}
                 </span>
                 <span className="ml-auto shrink-0">
@@ -514,11 +514,11 @@ export function MobileVisual({ className }: VisualProps) {
   return (
     <div ref={ref} className={className}>
       <Well label="Field terminal" meta={<Tag tone="mute">iOS · Android</Tag>}>
-        <div className="flex items-stretch gap-5">
+        <div className="flex flex-col gap-4 min-[420px]:flex-row min-[420px]:items-stretch min-[420px]:gap-5">
           {/* handset */}
           <div
             className={cn(
-              "w-[112px] shrink-0 rounded-2xl border border-border/70 bg-background p-3",
+              "w-[112px] shrink-0 self-center rounded-2xl border border-border/70 bg-background p-3 min-[420px]:self-auto",
               insetXs,
               enter,
               inView ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0",
