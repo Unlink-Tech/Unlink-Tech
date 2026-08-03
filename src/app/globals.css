@@ -192,6 +192,60 @@
   animation: rail-spine-packet 2.4s cubic-bezier(0.5, 0, 0.4, 1) infinite;
 }
 
+/* ---- Converging rails: the two branches clearing into the junction ------
+   Each route carries its own packet down to the junction, and the spine packet
+   below picks the flow up from there. The branch packets finish their travel by
+   the halfway point of the cycle and the spine packet is delayed by the same
+   half, so what you see is one movement handed from two rails to one, rather
+   than three dots looping past each other.
+
+   Two keyframes rather than one plus `animation-direction: reverse`: the fade
+   in and out is not symmetric, so a reversed playback puts the packet on screen
+   during the wrong half of the cycle.
+   ---------------------------------------------------------------------- */
+
+@keyframes branch-clear-left {
+  0% {
+    left: 0%;
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  42% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+.branch-clear-left {
+  animation: branch-clear-left 2.4s cubic-bezier(0.5, 0, 0.4, 1) infinite;
+}
+
+@keyframes branch-clear-right {
+  0% {
+    left: 100%;
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  42% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    left: 0%;
+    opacity: 0;
+  }
+}
+.branch-clear-right {
+  animation: branch-clear-right 2.4s cubic-bezier(0.5, 0, 0.4, 1) infinite;
+}
+
 /* ---- "Live instrument" motion for the product and service visuals -------
    Each panel assembles once on scroll-in, then one of these ambient loops
    keeps running on whatever is genuinely still in flight. Kept deliberately
@@ -327,7 +381,9 @@
     animation: none;
   }
   .rail-travel,
-  .rail-clear {
+  .rail-clear,
+  .branch-clear-left,
+  .branch-clear-right {
     animation: none;
     opacity: 0;
   }

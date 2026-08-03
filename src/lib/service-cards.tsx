@@ -50,11 +50,11 @@ export const serviceCards: ServiceCard[] = [
     feature: true,
     span: "sm:col-span-2 lg:col-span-2",
     title: "Fintech Platform Engineering",
-    // Trimmed to one sentence, like the other four: the proof block below now
-    // carries the evidence that the second sentence used to.
+    // One sentence each, like the other four: the proof block below carries the
+    // evidence, so the description does not have to argue as well as describe.
     description:
-      "Payment gateways, settlement engines, and merchant platforms, built for regulated environments and high-volume scale.",
-    stats: ["100% reconciliation on $50M+/day", "99.99% uptime", "PCI-DSS Level 1"],
+      "Gateways, settlement engines, and merchant platforms for high-volume regulated environments.",
+    stats: ["$50M+/day", "99.99% uptime", "PCI-DSS Level 1"],
     proof: (
       <>
         A production gateway handling multi-currency transactions at{" "}
@@ -70,7 +70,7 @@ export const serviceCards: ServiceCard[] = [
     span: "",
     title: "AI & ML Product Development",
     description:
-      "Fraud, anomaly, and risk scoring, with model governance and explainability from day one.",
+      "Fraud, anomaly, and risk scoring with governance and explainability from day one.",
     stats: ["98.7% detection", "−60% false positives", "MAS FEAT-compliant"],
     proof: (
       <>
@@ -87,7 +87,7 @@ export const serviceCards: ServiceCard[] = [
     span: "",
     title: "Enterprise Workflow & Onboarding",
     description:
-      "KYC/KYB automation, approval workflows, and ERP for regulated industries, where a workflow error is a compliance event.",
+      "KYC/KYB automation and approval workflows where a workflow error is a compliance event.",
     stats: ["40/day → 4/day", "95% automated", "Full audit trail"],
     proof: (
       <>
@@ -103,8 +103,8 @@ export const serviceCards: ServiceCard[] = [
     span: "",
     title: "Regulatory Compliance Technology",
     description:
-      "Gap assessment, implementation, and posture management across MAS TRM, RBI, SAMA, and CBUAE.",
-    stats: ["100% compliance posture", "−85% TRM findings", "Board-ready attestation"],
+      "Gap assessment to posture management across MAS TRM, RBI, SAMA, CBUAE. We know what examiners actually check.",
+    stats: ["−85% TRM findings", "Board-ready attestation"],
     proof: (
       <>
         <Em>100% compliance posture</Em> achieved with board-level attestation
@@ -119,8 +119,8 @@ export const serviceCards: ServiceCard[] = [
     span: "",
     title: "Mobile & Field Commerce",
     description:
-      "Consumer-grade mobile acceptance for field conditions: offline-first, QR + NFC, iOS & Android from one codebase.",
-    stats: ["4.8★ rating", "1M+ transactions", "Offline-first"],
+      "Offline-first, QR + NFC, iOS & Android from one codebase.",
+    stats: ["4.8★", "1M+ transactions", "Offline-first"],
     proof: (
       <>
         A merchant mobile platform at a <Em>4.8-star rating</Em> with{" "}
@@ -129,4 +129,5 @@ export const serviceCards: ServiceCard[] = [
       </>
     ),
   },
-];
+  // Alphabetical, matching lib/services.ts and the nav.
+].sort((a, b) => a.title.localeCompare(b.title));

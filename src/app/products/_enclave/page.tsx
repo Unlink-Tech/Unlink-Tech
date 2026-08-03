@@ -1,3 +1,11 @@
+/*
+ * ENCLAVE — HIDDEN FOR NOW.
+ *
+ * The folder is prefixed with `_` so Next.js treats it as a private folder and
+ * builds no /products/enclave route. Nothing here has been deleted: rename the
+ * folder back to `products/enclave` and un-comment the Enclave entries flagged
+ * with "Enclave hidden" across the codebase to bring the product back.
+ */
 import Link from "next/link";
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/site";

@@ -8,7 +8,8 @@
 /** Which product the demo is for. Kept in step with lib/products.ts. */
 export const DEMO_PRODUCTS = [
   "Cimmetri — reconciliation & financial operations",
-  "Enclave — private, governed enterprise AI",
+  // Enclave hidden for now.
+  // "Enclave — private, governed enterprise AI",
   "Payment Gateway — acceptance & routing",
   "Merchant Onboarding — KYC/KYB & risk scoring",
   "A custom build, not one of the products",

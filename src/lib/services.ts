@@ -316,7 +316,9 @@ export const services: Service[] = [
     signature:
       "Handling connectivity loss without transaction-integrity failure, a million times over.",
   },
-];
+  // Sorted on export, not by hand: a service added above lands in the right
+  // place in the nav, the footer, the showcase, and the sitemap on its own.
+].sort((a, b) => a.name.localeCompare(b.name));
 
 export function getService(slug: string) {
   return services.find((s) => s.slug === slug);

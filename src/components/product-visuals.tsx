@@ -166,8 +166,11 @@ export function CimmetriVisual({ className }: VisualProps) {
         }
       >
         <div className="grid grid-cols-[minmax(0,1fr)_26px_minmax(0,1fr)] gap-x-1.5 sm:grid-cols-[minmax(0,1fr)_44px_minmax(0,1fr)] sm:gap-x-2">
+          {/* Named for the sources, plural: the card beside this one promises
+              matching across gateways, banks, and ledgers, and the ACH / wire /
+              card rows below are exactly that mix arriving on one side. */}
           <div className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-            Bank statement
+            Gateway &amp; bank
           </div>
           <div />
           <div className="mb-2 text-right text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
@@ -262,7 +265,7 @@ export function CimmetriVisual({ className }: VisualProps) {
             auto-matched
           </span>
           <span className="breathe text-amber-600 dark:text-amber-400">
-            1 exception queued
+            1 exception routed
           </span>
         </div>
       </Well>
@@ -275,6 +278,9 @@ export function CimmetriVisual({ className }: VisualProps) {
 
    Motion: the answer arrives, then its sources are produced one at a time,
    which is the claim: nothing is asserted before it can be cited.
+
+   Enclave is hidden for now, so nothing renders this: it is unwired from
+   product-visuals-map.ts and kept here intact for when the product returns.
    ------------------------------------------------------------------------- */
 
 const SOURCES = [
@@ -499,6 +505,20 @@ export function GatewayVisual({ className }: VisualProps) {
               </span>
             </div>
           ))}
+        </div>
+
+        {/* The card beside this one claims breadth and settlement speed as well
+            as throughput, and neither was anywhere on the panel. */}
+        <div
+          className={cn(
+            "mt-4 flex items-center justify-between gap-3 text-[10px] text-muted-foreground",
+            enter,
+            inView ? "opacity-100" : "opacity-0",
+          )}
+          style={{ transitionDelay: `${PLOT_MS + 450}ms` }}
+        >
+          <span className="tabular-nums">40+ currencies</span>
+          <span className="tabular-nums">T+0 where supported</span>
         </div>
       </Well>
     </div>

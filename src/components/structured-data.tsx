@@ -55,7 +55,7 @@ export function OrganizationSchema() {
       "Merchant onboarding and KYC/KYB",
       "Fraud and risk machine learning",
       "MAS TRM and regulatory compliance technology",
-      "Governed enterprise AI",
+      // "Governed enterprise AI", // Enclave hidden for now.
     ],
   };
 

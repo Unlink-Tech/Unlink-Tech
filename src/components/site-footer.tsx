@@ -38,10 +38,12 @@ const company: FooterLink[] = [
 
 const products: FooterLink[] = [
   { label: "Cimmetri", href: "/products/cimmetri" },
-  { label: "Enclave", href: "/products/enclave" },
+  // Enclave hidden for now.
+  // { label: "Enclave", href: "/products/enclave" },
   { label: "Payment Gateway", href: "/products/payment-gateway" },
   { label: "Merchant Onboarding", href: "/products/merchant-onboarding" },
-];
+  // Sorted on export so a new entry lands in the right place on its own.
+].sort((a, b) => a.label.localeCompare(b.label));
 
 const services: FooterLink[] = [
   {
@@ -64,7 +66,7 @@ const services: FooterLink[] = [
     label: "Mobile & Field Commerce",
     href: "/custom-engineering/mobile-field-commerce",
   },
-];
+].sort((a, b) => a.label.localeCompare(b.label));
 
 function LinkColumn({ title, links }: { title: string; links: FooterLink[] }) {
   return (

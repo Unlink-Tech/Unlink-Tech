@@ -51,7 +51,7 @@ export default function CustomEngineeringPage() {
           <>
             Prefer proven infrastructure over a custom build?{" "}
             <span className="font-medium text-foreground">
-              Four of these capabilities are already productized. Deploy them
+              Three of these capabilities are already productized. Deploy them
               instead of building.
             </span>
           </>

@@ -75,7 +75,7 @@ export function ServicesShowcase({
             <SectionHeading
               eyebrow="Custom Engineering"
               title="Five service lines. One domain: regulated fintech."
-              subtitle="When no product fits, the same team builds it. Every capability is already shipped, audited, and run in production."
+              subtitle="When no product fits, the same team builds it. Every capability below is already shipped, audited, and running in production."
             />
           </Reveal>
         )}

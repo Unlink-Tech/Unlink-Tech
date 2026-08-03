@@ -14,7 +14,7 @@ const LABELS: Record<string, string> = {
   "payment-gateway": "Payment Gateway",
   "merchant-onboarding": "Merchant Onboarding",
   cimmetri: "Cimmetri",
-  enclave: "Enclave",
+  // enclave: "Enclave", // Enclave hidden for now.
   "fintech-platform-engineering": "Fintech Platform Engineering",
   "ai-ml-product-development": "AI & ML Product Development",
   "enterprise-workflow-onboarding": "Enterprise Workflow & Onboarding",
