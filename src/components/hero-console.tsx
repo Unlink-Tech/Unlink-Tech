@@ -5,7 +5,6 @@ import Link from "next/link";
 import {
   Activity,
   ArrowRight,
-  BrainCircuit,
   CreditCard,
   Scale,
   ShieldCheck,
@@ -69,15 +68,16 @@ const PRODUCTS: Product[] = [
     spark:
       "M0,40 L26,44 L52,30 L78,34 L104,18 L130,24 L156,12 L182,16 L208,10 L234,2",
   },
-  {
-    slug: "enclave",
-    name: "Enclave",
-    icon: BrainCircuit,
-    metric: "100%",
-    caption: "Claims cited to source",
-    spark:
-      "M0,52 L26,44 L52,46 L78,32 L104,36 L130,22 L156,26 L182,12 L208,16 L234,8",
-  },
+  // Enclave hidden for now.
+  // {
+  //   slug: "enclave",
+  //   name: "Enclave",
+  //   icon: BrainCircuit,
+  //   metric: "100%",
+  //   caption: "Claims cited to source",
+  //   spark:
+  //     "M0,52 L26,44 L52,46 L78,32 L104,36 L130,22 L156,26 L182,12 L208,16 L234,8",
+  // },
 ];
 
 const ROTATE_MS = 3600;

@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     "MAS TRM compliance",
     "PCI-DSS Level 1",
     "regulated fintech engineering",
-    "enterprise AI governance",
+    // "enterprise AI governance", // Enclave hidden for now.
   ],
   category: "technology",
   // No `alternates.canonical` here on purpose. Metadata is inherited, so a

@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import { absoluteUrl } from "@/lib/site";
 import { Hero } from "@/components/hero";
-// import { TrustStrip } from "@/components/trust-strip";
+import { ComplianceBar } from "@/components/compliance-bar";
 import { WhatWeDo } from "@/components/what-we-do";
+import { Lifecycle } from "@/components/lifecycle";
 import { ProductsShowcase } from "@/components/products-showcase";
+import { WhoWeServe } from "@/components/who-we-serve";
 import { ServicesShowcase } from "@/components/services-showcase";
+import { ProofBand } from "@/components/proof-band";
+import { WhyTeamsChoose } from "@/components/why-teams-choose";
 import { WhyUnlink } from "@/components/why-unlink";
 import { ClosingBand } from "@/components/closing-band";
 
@@ -21,12 +25,16 @@ export default function Home() {
   return (
     <>
       <Hero />
-      {/* Parked for now, to be brought back later. */}
-      {/* <TrustStrip /> */}
-      <WhatWeDo />
-      <ProductsShowcase />
-      <ServicesShowcase />
+      <ComplianceBar />
       <WhyUnlink />
+      <WhatWeDo />
+      {/* The spine: names the three products before the showcase details them. */}
+      <Lifecycle />
+      <ProductsShowcase />
+      <WhoWeServe />
+      <ServicesShowcase />
+      <ProofBand />
+      <WhyTeamsChoose />
       <ClosingBand />
     </>
   );

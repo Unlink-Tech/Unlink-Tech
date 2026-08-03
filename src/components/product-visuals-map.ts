@@ -1,7 +1,7 @@
 import type { ComponentType } from "react";
 import {
   CimmetriVisual,
-  EnclaveVisual,
+  // EnclaveVisual, // Enclave hidden for now.
   GatewayVisual,
   OnboardingVisual,
   type VisualProps,
@@ -19,7 +19,7 @@ import {
  */
 export const productVisuals: Record<string, ComponentType<VisualProps>> = {
   cimmetri: CimmetriVisual,
-  enclave: EnclaveVisual,
+  // enclave: EnclaveVisual, // Enclave hidden for now.
   "payment-gateway": GatewayVisual,
   "merchant-onboarding": OnboardingVisual,
 };

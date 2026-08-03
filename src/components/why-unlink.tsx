@@ -96,29 +96,23 @@ export function WhyUnlink() {
         {/* right — the differentiation copy */}
         <Reveal delay={100} className="order-1 lg:order-2">
           <p className="text-sm font-semibold uppercase tracking-widest text-indigo-500 dark:text-indigo-400">
-            Why teams choose Unlink
+            Why this is Different
           </p>
           <h2 className="mt-3 text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl">
-            Anyone can ship code. Few own its consequences.
+            In <span className="shine-text">regulated finance</span>, a software decision is a <span className="shine-text">compliance</span> event.
           </h2>
           <div className="mt-6 space-y-4 text-lg leading-relaxed text-muted-foreground">
             <p>
-              The code we write has to do more than run. It has to{" "}
-              <Em>pass a PCI-DSS audit</Em>,{" "}
-              <Em>satisfy a MAS TRM examiner</Em>,{" "}
-              <Em>survive a bank&apos;s security review</Em>, and operate at
-              production scale <Em>without a single reconciliation error</Em>.
+              An onboarding queue that leaks merchants to a faster competitor. A
+              gateway that buckles at 10× traffic. A reconciliation break nobody
+              catches until the auditor does. These aren&apos;t bugs: they are{" "}
+              <Em>lost merchants</Em>, <Em>revenue leakage</Em>, and{" "}
+              <Em>regulatory findings</Em>.
             </p>
             <p>
-              Most firms can build software. Very few understand the compliance,
-              regulatory, and operational consequences of the decisions inside
-              it. <Em>We do</Em>, because for 5+ years we have made those
-              decisions under real production conditions, with real
-              consequences.
-            </p>
-            <p>
-              Our products exist because we made them first for clients, and
-              then made them repeatable.
+              We build for the version of the system that has to survive all of
+              it: peak volume, an examiner&apos;s questions, and a partner
+              bank&apos;s security team, <Em>at the same time</Em>.
             </p>
           </div>
         </Reveal>

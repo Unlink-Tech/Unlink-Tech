@@ -10,7 +10,7 @@ const raisedSm =
 const insetXs =
   "shadow-[inset_3px_3px_6px_var(--neu-dark),inset_-3px_-3px_6px_var(--neu-light)]";
 
-const domains = ["Payments", "Reconciliation", "Onboarding", "Governed AI"];
+const domains = ["Payments", "Reconciliation", "Onboarding"];
 
 export function Hero() {
   return (
@@ -33,20 +33,21 @@ export function Hero() {
           </span>
 
           <h1 className="mt-8 text-4xl font-bold leading-[1.08] tracking-tight text-balance text-slate-700 dark:text-slate-100 sm:text-5xl lg:text-[3rem]">
-            The <span className="shine-text">financial</span> infrastructure
-            regulated businesses{" "}
+            The <span className="shine-text">infrastructure</span> that moves
+            regulated money and proves{" "}
             {/* Delayed so the two highlights gleam in reading order. */}
             <span className="shine-text" style={{ animationDelay: "0.7s" }}>
-              run on.
-            </span>
+              every rupee
+            </span>{" "}
+            landed where it should.
           </h1>
 
           <p className="mx-auto mt-6 max-w-xl text-base leading-8 text-slate-500 dark:text-slate-400 lg:mx-0 lg:text-lg">
-            Four products already running in production: payments,
-            reconciliation, merchant onboarding, and governed enterprise AI.
-            Proven under real transaction volume and real regulatory scrutiny
-            for over five years, plus a specialist team for everything beyond
-            them.
+            Onboard merchants, accept payments at scale, and reconcile every
+            settlement to the cent. Three production-grade products and a
+            specialist engineering team, running under real transaction volume
+            and real regulators for 5+ years. Buy what&apos;s proven. Build what
+            isn&apos;t. One team behind both.
           </p>
 
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row lg:items-start">
@@ -83,7 +84,7 @@ export function Hero() {
           </ul>
         </div>
 
-        {/* ---- right: the four products' live numbers ---- */}
+        {/* ---- right: the products' live numbers ---- */}
         <HeroConsole />
       </div>
     </section>

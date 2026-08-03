@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
  * The look is the immersive band: a chapter number, a brand wash behind the
  * visual, and the product name set large. The behaviour is the stacked deck:
  * each card pins as you scroll and comes to rest a little below the last, so
- * the four build up on screen instead of scrolling away.
+ * they build up on screen instead of scrolling away.
  *
  * Two rules keep the stack honest, and both are load-bearing:
  *
@@ -42,9 +42,9 @@ const insetXs =
  */
 const TOP_BASE = 80;
 const TOP_STEP = 16;
-/** Uniform card height, so all four keep the same presence in the stack. */
+/** Uniform card height, so every card keeps the same presence in the stack. */
 const MIN_HEIGHT = "lg:min-h-[37rem]";
-/** Uniform visual slot, so all four line up whatever their natural height. */
+/** Uniform visual slot, so they line up whatever their natural height. */
 const VISUAL_SLOT = "lg:h-[27rem]";
 
 /**
@@ -74,7 +74,18 @@ export function ProductsShowcase({
           <Reveal className="mb-16">
             <SectionHeading
               eyebrow="Products"
-              title="Four products. Proven in production."
+              /* Markup rather than a plain string, so shineFocusWord leaves it
+                 alone and the subject carries the highlight as well as the
+                 closing word. */
+              title={
+                <>
+                  Three <span className="shine-text">products.</span> Each
+                  measured on the number that{" "}
+                  <span className="shine-text" style={{ animationDelay: "0.7s" }}>
+                    matters.
+                  </span>
+                </>
+              }
               subtitle="Infrastructure you deploy instead of building. Each one is measured on a number that matters."
             />
           </Reveal>

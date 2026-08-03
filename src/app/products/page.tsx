@@ -7,7 +7,7 @@ import { ProductsShowcase } from "@/components/products-showcase";
 export const metadata: Metadata = pageMetadata({
   title: "Products",
   description:
-    "Four products, one infrastructure standard: payments, merchant onboarding, reconciliation, and governed enterprise AI. Deploy standalone or as a connected stack.",
+    "Three products, one infrastructure standard: payments, merchant onboarding, and reconciliation. Deploy standalone or as a connected stack.",
   path: "/products",
 });
 
@@ -17,8 +17,8 @@ export default function ProductsPage() {
       {/* page header with breadcrumb + aurora background */}
       <PageHero
         eyebrow="Products"
-        title="Four products. One infrastructure standard."
-        subtitle="Each product began as a system we built and ran for a client in production. We kept what survived: the architecture, the edge cases, the audit trail. Then we made it deployable. Use them standalone or as a connected stack: accept payments, onboard merchants, reconcile every transaction, and put a governed AI layer over all of it."
+        title="Three products. One infrastructure standard."
+        subtitle="Each product began as a system we built and ran for a client in production. We kept what survived: the architecture, the edge cases, the audit trail. Then we made it deployable. Use them standalone or as a connected stack: accept payments, onboard merchants, and reconcile every transaction to the cent."
       />
 
       {/*

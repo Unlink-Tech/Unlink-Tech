@@ -82,9 +82,9 @@ export default function AboutPage() {
             systems, enterprise workflows, and regulatory compliance platforms
             for banks, NBFCs, PSPs, and fintechs across India, Southeast Asia,
             and the Middle East. Along the way, the systems that solved the
-            hardest problems became products: <Grad>Cimmetri</Grad>,{" "}
-            <Grad>Enclave</Grad>, our <Grad>Payment Gateway</Grad>, and{" "}
-            <Grad>Merchant Onboarding</Grad>.{" "}
+            {/* Enclave hidden for now: re-add <Grad>Enclave</Grad> here. */}
+            hardest problems became products: <Grad>Cimmetri</Grad>, our{" "}
+            <Grad>Payment Gateway</Grad>, and <Grad>Merchant Onboarding</Grad>.{" "}
             <Em>
               That history is not marketing. It is the foundation of everything
               we do for the next client.
@@ -119,8 +119,10 @@ export default function AboutPage() {
               eyebrow="On AI"
               heading="Can&apos;t AI just build this?"
             >
+              {/* Enclave hidden for now: this sentence used to name it as our own AI build. */}
               We use AI tooling in our engineering. It makes us faster, and we
-              built <Em>Enclave</Em>, so we understand the technology deeply.
+              have <Em>shipped AI systems into production</Em>, so we understand
+              the technology deeply.
               What AI cannot replace is <Em>domain judgment</Em>: knowing which
               architectural decision fails a MAS audit six months after go-live,
               or how a settlement system handles a reconciliation dispute at{" "}

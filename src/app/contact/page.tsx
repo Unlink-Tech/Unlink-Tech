@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/site";
-import { BrainCircuit, Download, Phone, Scale } from "lucide-react";
+import { Download, Phone, Scale } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { PageHero } from "@/components/page-hero";
 import { ContactForm } from "@/components/contact-form";
@@ -27,11 +27,12 @@ const entryPoints: EntryPoint[] = [
     description:
       "See the engine run on 30 days of your own settlement data.",
   },
-  {
-    icon: BrainCircuit,
-    title: "Start an Enclave guided evaluation",
-    description: "One document set, one read-only database, one week.",
-  },
+  // Enclave hidden for now.
+  // {
+  //   icon: BrainCircuit,
+  //   title: "Start an Enclave guided evaluation",
+  //   description: "One document set, one read-only database, one week.",
+  // },
   {
     icon: Phone,
     title: "Book a scoping call",
@@ -57,10 +58,10 @@ export default function ContactPage() {
 
       <section className="px-4 pb-24 pt-16 sm:px-6">
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-2 lg:gap-16">
-          {/* left — four entry points */}
+          {/* left — the entry points */}
           <Reveal>
             <h2 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
-              Four ways to start
+              Three ways to start
             </h2>
             <div className="mt-6 space-y-4">
               {entryPoints.map(({ icon: Icon, title, description }) => (

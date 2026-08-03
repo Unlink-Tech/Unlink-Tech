@@ -34,7 +34,8 @@ export const SITE = {
   legalName: "Unlink Technologies Private Limited",
   tagline: "We Deliver What we Promise",
   description:
-    "Financial infrastructure for regulated businesses: payments, reconciliation, merchant onboarding, and governed enterprise AI, shipped and running in production.",
+    // Enclave hidden for now: "and governed enterprise AI" belongs back in this list when it returns.
+    "Financial infrastructure for regulated businesses: payments, reconciliation, and merchant onboarding, shipped and running in production.",
   locale: "en_US",
   linkedIn:
     "https://www.linkedin.com/company/unlink-technologies-private-limited",

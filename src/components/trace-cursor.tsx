@@ -8,16 +8,20 @@ import { useEffect, useRef, useSyncExternalStore } from "react";
  * The metaphor is the business: money moving through rails under supervision.
  *
  *   • the dot        the pointer itself, never lagged, so precision is intact
- *   • the packets    small squares shed behind every sweep, drifting along the
- *                    direction you travelled — transactions in flight
- *   • the trace      the hairline those packets left, fading oldest-first
+ *   • the trace      a hairline through where the pointer has just been, fading
+ *                    oldest-first
  *   • the reticle    a scanner frame trailing the dot; over anything clickable
  *                    it locks onto the element's exact box, corner brackets
  *                    first, the way a settlement locks onto a record
  *   • the pulse      a click sends one confirmation ring outward
  *
- * Everything paints from a single rAF loop: one canvas for the trace, packets
- * and pulses, plus two positioned divs for the reticle and the dot. Ink is read
+ * There was once a fourth element: small squares shed behind every sweep, as
+ * transactions in flight. They were removed rather than tuned down further. A
+ * cursor is read at the point it is pointing, and anything scattering out
+ * behind it competes with the page for exactly the attention the page needs.
+ *
+ * Everything paints from a single rAF loop: one canvas for the trace and the
+ * pulses, plus two positioned divs for the reticle and the dot. Ink is read
  * from CSS custom properties (same trick as SettlementRails), so the whole cursor
  * re-tints itself the instant the theme flips, with no React re-render.
  *
@@ -49,27 +53,8 @@ const MORPH = 0.24;
 /** Free-float spin, degrees per frame (~17s a revolution). */
 const SPIN = 0.35;
 
-/** Cursor travel between packet emissions, px. */
-const PACKET_SPACING = 15;
-/** Ceiling on live packets, so a fast scribble can't unbound the loop. */
-const MAX_PACKETS = 90;
-/** Life lost per frame — packets last ~1.2s. */
-const PACKET_DECAY = 0.014;
 /** Positions kept for the trace hairline. */
 const TRACE_LENGTH = 18;
-
-type Packet = {
-  x: number;
-  y: number;
-  vx: number;
-  vy: number;
-  rot: number;
-  vr: number;
-  size: number;
-  life: number;
-  hollow: boolean;
-  accent: boolean;
-};
 
 type Pulse = { x: number; y: number; life: number };
 
@@ -130,12 +115,8 @@ export function TraceCursor() {
     let width = window.innerWidth;
     let height = window.innerHeight;
 
-    /** Live pointer position, and where it was last frame. */
+    /** Live pointer position. */
     const pointer = { x: width / 2, y: height / 2 };
-    let lastX = pointer.x;
-    let lastY = pointer.y;
-    /** Distance banked since the last packet was shed. */
-    let travel = 0;
     let seen = false;
 
     /** The reticle's own eased state — it chases the pointer, never matches it. */
@@ -156,12 +137,10 @@ export function TraceCursor() {
     let visible = 0;
     let paintedVisible = -1;
 
-    const packets: Packet[] = [];
     const pulses: Pulse[] = [];
     const trace: { x: number; y: number }[] = [];
 
     let ink: [number, number, number] = [99, 102, 241];
-    let accent: [number, number, number] = [124, 58, 237];
 
     /** Re-read the themed ink from CSS; keeps indigo/violet if unparseable. */
     function readInk() {
@@ -173,7 +152,6 @@ export function TraceCursor() {
           : fallback;
       };
       ink = parse("--particle-rgb", ink);
-      accent = parse("--cursor-accent-rgb", accent);
     }
 
     const rgba = (c: [number, number, number], a: number) =>
@@ -191,60 +169,11 @@ export function TraceCursor() {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
-    /** Shed one packet, thrown along the sweep with a little sideways scatter. */
-    function emit(dx: number, dy: number) {
-      const len = Math.hypot(dx, dy) || 1;
-      const ux = dx / len;
-      const uy = dy / len;
-      // Perpendicular to travel, so the stream fans instead of stacking.
-      const spread = (Math.random() - 0.5) * 1.1;
-      const speed = Math.min(len * 0.16, 2.6);
-
-      packets.push({
-        x: pointer.x - ux * 6 + -uy * spread * 5,
-        y: pointer.y - uy * 6 + ux * spread * 5,
-        vx: ux * speed - uy * spread,
-        vy: uy * speed + ux * spread,
-        rot: Math.random() * Math.PI,
-        vr: (Math.random() - 0.5) * 0.09,
-        size: 2.4 + Math.random() * 2,
-        life: 1,
-        // A minority ride hollow / in violet, so the stream reads as mixed
-        // traffic rather than one repeated sprite.
-        hollow: Math.random() < 0.45,
-        accent: Math.random() < 0.35,
-      });
-      if (packets.length > MAX_PACKETS) packets.shift();
-    }
-
     function step() {
-      // ---- trace + packet emission ----
-      const dx = pointer.x - lastX;
-      const dy = pointer.y - lastY;
-      const moved = Math.hypot(dx, dy);
-      lastX = pointer.x;
-      lastY = pointer.y;
-
+      // ---- trace ----
       if (seen) {
         trace.unshift({ x: pointer.x, y: pointer.y });
         if (trace.length > TRACE_LENGTH) trace.pop();
-
-        travel += moved;
-        while (travel >= PACKET_SPACING) {
-          travel -= PACKET_SPACING;
-          emit(dx, dy);
-        }
-      }
-
-      for (let i = packets.length - 1; i >= 0; i--) {
-        const p = packets[i];
-        p.x += p.vx;
-        p.y += p.vy;
-        p.vx *= 0.94;
-        p.vy *= 0.94;
-        p.rot += p.vr;
-        p.life -= PACKET_DECAY;
-        if (p.life <= 0) packets.splice(i, 1);
       }
 
       for (let i = pulses.length - 1; i >= 0; i--) {
@@ -303,25 +232,6 @@ export function TraceCursor() {
         ctx.lineWidth = (1 - i / trace.length) * 1.6 + 0.3;
         ctx.lineCap = "round";
         ctx.stroke();
-      }
-
-      // ---- packets in flight ----
-      for (const p of packets) {
-        const alpha = p.life * p.life * 0.75 * visible;
-        const colour = p.accent ? accent : ink;
-        ctx.save();
-        ctx.translate(p.x, p.y);
-        ctx.rotate(p.rot);
-        const s = p.size * (0.55 + p.life * 0.45);
-        if (p.hollow) {
-          ctx.strokeStyle = rgba(colour, alpha);
-          ctx.lineWidth = 1;
-          ctx.strokeRect(-s / 2, -s / 2, s, s);
-        } else {
-          ctx.fillStyle = rgba(colour, alpha);
-          ctx.fillRect(-s / 2, -s / 2, s, s);
-        }
-        ctx.restore();
       }
 
       // ---- confirmation pulses ----
@@ -392,8 +302,6 @@ export function TraceCursor() {
         // First sighting: drop the reticle where the cursor already is instead
         // of flying it in from the middle of the screen.
         seen = true;
-        lastX = pointer.x;
-        lastY = pointer.y;
         reticle.x = pointer.x;
         reticle.y = pointer.y;
       }
@@ -407,11 +315,6 @@ export function TraceCursor() {
 
     function onDown(e: PointerEvent) {
       pulses.push({ x: e.clientX, y: e.clientY, life: 1 });
-      // A click throws off a short burst, in every direction.
-      for (let i = 0; i < 7; i++) {
-        const a = (Math.PI * 2 * i) / 7 + Math.random();
-        emit(Math.cos(a) * 14, Math.sin(a) * 14);
-      }
     }
 
     function onLeave() {

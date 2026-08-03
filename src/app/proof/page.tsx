@@ -5,7 +5,6 @@ import {
   BrainCircuit,
   ClipboardCheck,
   CreditCard,
-  Lock,
   Scale,
   ShieldCheck,
 } from "lucide-react";
@@ -20,7 +19,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = pageMetadata({
   title: "Proof",
   description:
-    "5+ years of fintech-grade systems across payments, settlement, fraud, onboarding, compliance, and enterprise AI. Every claim carries a number; none requires a client name.",
+    "5+ years of fintech-grade systems across payments, settlement, fraud, onboarding, and compliance. Every claim carries a number; none requires a client name.",
   path: "/proof",
 });
 
@@ -85,8 +84,8 @@ const briefs: Brief[] = [
     architecture:
       "A feature store feeding gradient-boosted and graph models, shadow-deployed against the incumbent rules engine, with per-decision reason codes captured at inference time.",
     outcome: "98.7% detection · −60% false positives vs rules · <50ms scoring.",
-    origin:
-      "This work seeded our AI & ML practice, and the governance behind Enclave.",
+    // Enclave hidden for now: this used to end "…and the governance behind Enclave."
+    origin: "This work seeded our AI & ML practice.",
   },
   {
     icon: ClipboardCheck,
@@ -116,20 +115,21 @@ const briefs: Brief[] = [
       "100% posture with board-ready attestation · open TRM findings −85% through implementation, not paperwork.",
     origin: "This became our MAS TRM and compliance-technology practice.",
   },
-  {
-    icon: Lock,
-    domain: "Governed enterprise AI",
-    product: "Enclave",
-    problem:
-      "Give an enterprise useful AI over its own documents without the data ever leaving its boundary, and cite every answer to a source.",
-    complexity:
-      "Retrieval quality on messy internal corpora, source attribution, document-level access control, and deployment into VPC, on-prem, or air-gapped environments.",
-    architecture:
-      "Retrieval-augmented generation with per-chunk citations, tenant-isolated indexes, and a governance layer that enforces permissions at query time.",
-    outcome:
-      "Answers in seconds vs 20-minute searches · every claim cited · deployable in ~4 weeks.",
-    origin: "This system is where Enclave came from.",
-  },
+  // Enclave hidden for now, and this brief with it.
+  // {
+  //   icon: Lock,
+  //   domain: "Governed enterprise AI",
+  //   product: "Enclave",
+  //   problem:
+  //     "Give an enterprise useful AI over its own documents without the data ever leaving its boundary, and cite every answer to a source.",
+  //   complexity:
+  //     "Retrieval quality on messy internal corpora, source attribution, document-level access control, and deployment into VPC, on-prem, or air-gapped environments.",
+  //   architecture:
+  //     "Retrieval-augmented generation with per-chunk citations, tenant-isolated indexes, and a governance layer that enforces permissions at query time.",
+  //   outcome:
+  //     "Answers in seconds vs 20-minute searches · every claim cited · deployable in ~4 weeks.",
+  //   origin: "This system is where Enclave came from.",
+  // },
 ];
 
 function Block({
@@ -215,7 +215,7 @@ export default function ProofPage() {
             Our client work is confidential, which is what you would want if you
             were the client. What we share instead is the depth of the work: 5+
             years of fintech-grade systems across payments, settlement, fraud,
-            onboarding, compliance, and enterprise AI.{" "}
+            onboarding, and compliance.{" "}
             <Em>
               Every claim below carries a number; none requires a client name.
             </Em>{" "}

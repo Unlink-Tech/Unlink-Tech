@@ -29,11 +29,12 @@ const products: NavChild[] = [
     href: "/products/cimmetri",
     desc: "Reconciliation, automated. A 48-hour pilot.",
   },
-  {
-    label: "Enclave",
-    href: "/products/enclave",
-    desc: "AI without the governance trade-off.",
-  },
+  // Enclave hidden for now.
+  // {
+  //   label: "Enclave",
+  //   href: "/products/enclave",
+  //   desc: "AI without the governance trade-off.",
+  // },
   {
     label: "Payment Gateway",
     href: "/products/payment-gateway",
@@ -44,7 +45,8 @@ const products: NavChild[] = [
     href: "/products/merchant-onboarding",
     desc: "Onboard in hours, not weeks, with a full evidence trail.",
   },
-];
+  // Sorted on export so a new entry lands in the right place on its own.
+].sort((a, b) => a.label.localeCompare(b.label));
 
 const services: NavChild[] = [
   {
@@ -72,7 +74,7 @@ const services: NavChild[] = [
     href: "/custom-engineering/mobile-field-commerce",
     desc: "Offline-first mobile and field commerce.",
   },
-];
+].sort((a, b) => a.label.localeCompare(b.label));
 
 const company: NavChild[] = [
   {
