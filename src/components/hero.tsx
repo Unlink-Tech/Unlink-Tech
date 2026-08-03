@@ -10,7 +10,7 @@ const raisedSm =
 const insetXs =
   "shadow-[inset_3px_3px_6px_var(--neu-dark),inset_-3px_-3px_6px_var(--neu-light)]";
 
-const domains = ["Payments", "Reconciliation", "Onboarding"];
+const domains = ["Onboarding", "Payments", "Reconciliation"];
 
 export function Hero() {
   return (
